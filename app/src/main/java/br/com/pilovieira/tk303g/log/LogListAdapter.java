@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
@@ -71,17 +73,36 @@ public class LogListAdapter extends BaseAdapter {
         LocationTag tag = (LocationTag) view.getTag();
         tag.creationDate.setText(dateFormat.format(log.getDate()));
         tag.title.setText(log.getTitle());
-        String message = log.getMessage();
-        String[] attrs = message.split("\\?")[1].split("&");
-        final String lat = attrs[2].split("=")[1].split(",")[0];
-        final String lng = attrs[2].split("=")[1].split(",")[1];
 
-        tag.lat.setText(lat);
-        tag.lng.setText(lng);
-        tag.speed.setText(attrs[3].split("=")[1]);
-        tag.saved.setText(attrs[4].split("=")[1]);
+        try {
+            StringReader sr = new StringReader(log.getMessage());
+            BufferedReader br = new BufferedReader(sr);
 
-        ListenerProvider.openGeo(view, lat, lng);
+            String line = br.readLine();
+            while (line != null) {
+                try {
+                    processLine(tag, line);
+                } catch (Exception ex) {}
+                line = br.readLine();
+            }
+            br.close();
+            sr.close();
+        } catch (Exception ex) {}
+
+        ListenerProvider.openGeo(view, tag.lat.getText().toString(), tag.lng.getText().toString());
+    }
+
+    private void processLine(LocationTag tag, String line) {
+        if (line == null)
+            return;
+        if (line.contains("lat:"))
+            tag.lat.setText(line.trim().split(" ")[0].split(":")[1]);
+        if (line.contains("lon:"))
+            tag.lng.setText(line.trim().split("lon:")[1]);
+        if (line.contains("speed:"))
+            tag.speed.setText(context.getString(R.string.speed_kmh, line.trim().split(":")[1]));
+        if (line.contains("T:"))
+            tag.saved.setText(line.trim().split("T:")[1]);
     }
 
     private View prepare(View view, ServerLog log) {
