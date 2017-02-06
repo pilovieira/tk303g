@@ -7,13 +7,15 @@ import br.com.pilovieira.tk303g.persist.Prefs;
 public class TK303GCommands {
 
     private Context context;
+    private Prefs prefs;
 
     public TK303GCommands(Context context) {
         this.context = context;
+        this.prefs = new Prefs(context);
     }
 
     private String getPassword() {
-        return new Prefs(context).getPassword();
+        return prefs.getPassword();
     }
 
     private String go(String command) {
@@ -21,7 +23,7 @@ public class TK303GCommands {
     }
 
     public String getLocation() {
-        return "GOOGLE";
+        return String.format("tel:%s", prefs.getTrackerNumber());
     }
 
     public String lockVehicle() {
@@ -33,7 +35,7 @@ public class TK303GCommands {
     }
 
     public String changePassword(String oldPass, String newPass) {
-        return go(String.format("password%s%s", oldPass, newPass));
+        return go(String.format("password%s %s", oldPass, newPass));
     }
 
     public String authorizeNumber(String number) {

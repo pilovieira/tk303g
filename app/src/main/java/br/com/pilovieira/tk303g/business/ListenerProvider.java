@@ -1,16 +1,22 @@
 package br.com.pilovieira.tk303g.business;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
+import br.com.pilovieira.tk303g.persist.Prefs;
 
 import static android.content.Intent.ACTION_VIEW;
 
@@ -26,6 +32,52 @@ public class ListenerProvider {
             @Override
             public void onClick(View view) {
                 new SMSEmitter(view.getContext()).emit(text, command);
+            }
+        });
+    }
+
+    public static void locationListener(View view) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Prefs prefs = new Prefs(context);
+                String number = prefs.getTrackerNumber();
+                if (number.isEmpty()) {
+                    Toast.makeText(context, R.string.msg_configure_tracker_number, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                TK303GCommands commands = new TK303GCommands(context);
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse(commands.getLocation()));
+                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(context, R.string.please_add_call_permission, Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    public static void lock(View view) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                TK303GCommands commands = new TK303GCommands(context);
+                new SMSEmitter(view.getContext()).emit(context.getString(R.string.lock_vehicle), commands.lockVehicle());
+            }
+        });
+    }
+
+    public static void unlock(View view) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                TK303GCommands commands = new TK303GCommands(context);
+                new SMSEmitter(view.getContext()).emit(context.getString(R.string.unlock_vehicle), commands.unlockVehicle());
             }
         });
     }

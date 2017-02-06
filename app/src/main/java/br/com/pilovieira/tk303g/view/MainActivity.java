@@ -1,5 +1,6 @@
 package br.com.pilovieira.tk303g.view;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         configureToolbar();
         configureNavigationMenu();
         requestSMSPermission();
+        requestCallPermission();
         initializeHotButtons();
         configureAdView();
     }
@@ -84,15 +86,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void requestSMSPermission() {
         String permission = android.Manifest.permission.SEND_SMS;
-        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
             ActivityCompat.requestPermissions(this, new String[]{permission}, 1000);
-        }
+    }
+
+    private void requestCallPermission() {
+        String permission = Manifest.permission.CALL_PHONE;
+        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{permission}, 1001);
     }
 
     private void initializeHotButtons() {
-        TK303GCommands commands = new TK303GCommands(getBaseContext());
-        ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_get_location), getString(R.string.get_location), commands.getLocation());
-        ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_lock_vehicle), getString(R.string.lock_vehicle), commands.lockVehicle());
-        ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_unlock_vehicle), getString(R.string.unlock_vehicle), commands.unlockVehicle());
+        ListenerProvider.locationListener(findViewById(R.id.btn_hot_get_location));
+        ListenerProvider.lock(findViewById(R.id.btn_hot_lock_vehicle));
+        ListenerProvider.unlock(findViewById(R.id.btn_hot_unlock_vehicle));
     }
 }

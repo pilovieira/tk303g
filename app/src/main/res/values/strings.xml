@@ -6,7 +6,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="nav_header_description">Main Menu</string>
     <string name="activity_main_drawer_operations">Operations</string>
     <string name="advanced_configs">Advanced Configs</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
@@ -66,5 +65,6 @@
     <string name="remove_number">Remove Number</string>
     <string name="main_configs">Main Configs</string>
     <string name="basic_operations">Basic Operations</string>
+    <string name="please_add_call_permission">Please add call permission!</string>
 
 </resources>
