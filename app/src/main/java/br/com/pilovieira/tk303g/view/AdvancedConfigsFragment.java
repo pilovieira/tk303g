@@ -14,17 +14,19 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import br.com.pilovieira.tk303g.R;
-import br.com.pilovieira.tk303g.business.H06Commands;
+import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
 import br.com.pilovieira.tk303g.persist.Prefs;
 
-public class ConfigurationsFragment extends Fragment {
+public class AdvancedConfigsFragment extends Fragment {
 
-    private H06Commands commands = new H06Commands();
+    private TK303GCommands commands;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        commands = new TK303GCommands(getContext());
+
         View view = inflater.inflate(R.layout.fragment_configurations, container, false);
 
         resolveTrackerNumberEditText(view);
@@ -74,7 +76,7 @@ public class ConfigurationsFragment extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ListView lw = ((AlertDialog)dialogInterface).getListView();
                         if (lw.getCheckedItemPosition() != -1) {
-                            String command = new H06Commands().trackerLanguage(lw.getCheckedItemPosition());
+                            String command = new TK303GCommands(getContext()).trackerLanguage(lw.getCheckedItemPosition());
                             new SMSEmitter(view.getContext()).emit(btn.getText().toString(), command);
                         }
                     }
@@ -91,7 +93,7 @@ public class ConfigurationsFragment extends Fragment {
         ListenerProvider.openDialogOneParam(this, btn, R.string.number, new ListenerProvider.CommandOneParam() {
             @Override
             public void apply(String param1Value) {
-                new SMSEmitter(btn.getContext()).emit(btn.getText().toString(), commands.pairNumber(param1Value));
+                new SMSEmitter(btn.getContext()).emit(btn.getText().toString(), commands.authorizeNumber(param1Value));
             }
         });
     }

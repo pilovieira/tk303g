@@ -28,6 +28,20 @@ public class Prefs {
 		editor.apply();
 	}
 
+	public String getPassword() {
+		return getSharedPreferences().getString(context.getString(R.string.PREF_PASSWORD), "");
+	}
+
+	public void setPassword(String trackerNumber) {
+		String oldNumber = getTrackerNumber();
+		if (trackerNumber.equals(oldNumber))
+			return;
+
+		SharedPreferences.Editor editor = getSharedPreferences().edit();
+		editor.putString(context.getString(R.string.PREF_PASSWORD), trackerNumber);
+		editor.apply();
+	}
+
 	private SharedPreferences getSharedPreferences() {
 		return PreferenceManager.getDefaultSharedPreferences(this.context);
 	}

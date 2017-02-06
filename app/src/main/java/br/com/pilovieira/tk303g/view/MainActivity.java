@@ -16,7 +16,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import br.com.pilovieira.tk303g.R;
-import br.com.pilovieira.tk303g.business.H06Commands;
+import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 
 public class MainActivity extends AppCompatActivity {
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeHotButtons() {
-        H06Commands commands = new H06Commands();
+        TK303GCommands commands = new TK303GCommands(getBaseContext());
         ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_get_location), getString(R.string.get_location), commands.getLocation());
         ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_lock_vehicle), getString(R.string.lock_vehicle), commands.lockVehicle());
         ListenerProvider.emitCommandListener(findViewById(R.id.btn_hot_unlock_vehicle), getString(R.string.unlock_vehicle), commands.unlockVehicle());

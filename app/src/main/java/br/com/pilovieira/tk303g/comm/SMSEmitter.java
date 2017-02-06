@@ -27,12 +27,14 @@ public class SMSEmitter {
     }
 
 	private void emit(String message) {
-        String trackerNumber = new Prefs(context).getTrackerNumber();
+        Prefs prefs = new Prefs(context);
 
-        if (trackerNumber.isEmpty())
+        if (prefs.getTrackerNumber().isEmpty())
             throw new RuntimeException(context.getString(R.string.msg_configure_tracker_number));
+        if (prefs.getPassword().isEmpty())
+            throw new RuntimeException(context.getString(R.string.msg_configure_password));
 
-        SmsManager.getDefault().sendTextMessage(trackerNumber, null, message, null, null);
+        SmsManager.getDefault().sendTextMessage(prefs.getTrackerNumber(), null, message, null, null);
 	}
 
     private void log(String commandName, String command) {

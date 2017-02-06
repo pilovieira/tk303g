@@ -28,12 +28,12 @@ public class DrawerResolver implements NavigationView.OnNavigationItemSelectedLi
             case R.id.nav_operations:
                 fragment = new OperationsFragment();
                 break;
-            case R.id.nav_configurations:
-                fragment = new ConfigurationsFragment();
+            case R.id.nav_main_configs:
+                fragment = new MainConfigsFragment();
                 break;
-            case R.id.nav_user_manual:
-                fragment = new UserManualFragment();
-                break;
+        /*    case R.id.nav_advanced_configs:
+                fragment = new AdvancedConfigsFragment();
+                break;*/
         }
 
         replaceFragment(fragment);

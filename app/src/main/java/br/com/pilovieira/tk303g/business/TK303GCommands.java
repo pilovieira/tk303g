@@ -1,17 +1,47 @@
 package br.com.pilovieira.tk303g.business;
 
-public class H06Commands {
+import android.content.Context;
+
+import br.com.pilovieira.tk303g.persist.Prefs;
+
+public class TK303GCommands {
+
+    private Context context;
+
+    public TK303GCommands(Context context) {
+        this.context = context;
+    }
+
+    private String getPassword() {
+        return new Prefs(context).getPassword();
+    }
+
+    private String go(String command) {
+        return command.replace("#", getPassword());
+    }
 
     public String getLocation() {
         return "GOOGLE";
     }
 
     public String lockVehicle() {
-        return "DO";
+        return go("stop#");
     }
 
     public String unlockVehicle() {
-        return "TO";
+        return go("resume#");
+    }
+
+    public String changePassword(String oldPass, String newPass) {
+        return go(String.format("password%s%s", oldPass, newPass));
+    }
+
+    public String authorizeNumber(String number) {
+        return go(String.format("admin# %s", number));
+    }
+
+    public String deleteNumber(String number) {
+        return go(String.format("noadmin# %s", number));
     }
 
     public String firmwareVersion() {
@@ -49,17 +79,6 @@ public class H06Commands {
         return String.format("ZC%s # %s # %s", pass, number, carId);
     }
 
-    public String changePassword(String oldPass, String newPass) {
-        return String.format("MP%s%s", oldPass, newPass);
-    }
-
-    public String pairNumber(String number) {
-        return String.format("SPN%s", number);
-    }
-
-    public String deleteNumber(String number) {
-        return String.format("DSPN%s", number);
-    }
     public String deleteAllPairedNumbers() {
         return "DSPN";
     }

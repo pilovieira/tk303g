@@ -11,13 +11,13 @@
             android:icon="@drawable/ic_place_black_24dp"
             android:title="@string/activity_main_drawer_operations" />
         <item
-            android:id="@+id/nav_configurations"
+            android:id="@+id/nav_main_configs"
             android:icon="@drawable/ic_settings_applications_black_24px"
-            android:title="@string/activity_main_drawer_configurations" />
-        <item
-            android:id="@+id/nav_user_manual"
-            android:icon="@drawable/ic_event_note_black_24dp"
-            android:title="@string/activity_main_drawer_user_manual" />
+            android:title="@string/main_configs" />
+<!--        <item
+            android:id="@+id/nav_advanced_configs"
+            android:icon="@drawable/ic_settings_applications_black_24px"
+            android:title="@string/advanced_configs" /> -->
     </group>
 
 </menu>

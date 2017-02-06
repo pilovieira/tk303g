@@ -8,7 +8,7 @@
 
     <string name="nav_header_description">Main Menu</string>
     <string name="activity_main_drawer_operations">Operations</string>
-    <string name="activity_main_drawer_configurations">Configurations</string>
+    <string name="advanced_configs">Advanced Configs</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
     <string name="fragment_info_info_title">Info</string>
     <string name="notification_default_text">Click here for more details</string>
@@ -38,6 +38,7 @@
     <string name="set_over_speed_alarm">Set Over Speed Alarm</string>
     <string name="tracker_number">Tracker Number</string>
     <string name="msg_configure_tracker_number">Please configure your tracker number!</string>
+    <string name="msg_configure_password">Please configure your password!</string>
     <string name="message_confirmation">Command \'%1$s\' has sent successfully!</string>
     <string name="message_command_confirmation">Command \'%1$s\' has sent successfully!\n%2$s</string>
     <string name="command">Command</string>
@@ -60,5 +61,10 @@
     <string name="password">Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="car_station_id">Car Station ID</string>
+    <string name="main_config_commands">Main Config Commands</string>
+    <string name="authorize_number">Authorize Number</string>
+    <string name="remove_number">Remove Number</string>
+    <string name="main_configs">Main Configs</string>
+    <string name="basic_operations">Basic Operations</string>
 
 </resources>
