@@ -11,9 +11,11 @@ import br.com.pilovieira.tk303g.persist.Prefs;
 public class SMSEmitter {
 
     private Context context;
+    private Prefs prefs;
 
     public SMSEmitter(Context context) {
         this.context = context;
+        this.prefs = new Prefs(context);
     }
 
     public void emit(String commandName, String command) {
@@ -27,8 +29,6 @@ public class SMSEmitter {
     }
 
 	private void emit(String message) {
-        Prefs prefs = new Prefs(context);
-
         if (prefs.getTrackerNumber().isEmpty())
             throw new RuntimeException(context.getString(R.string.msg_configure_tracker_number));
         if (prefs.getPassword().isEmpty())
@@ -38,7 +38,7 @@ public class SMSEmitter {
 	}
 
     private void log(String commandName, String command) {
-        String log = context.getString(R.string.message_command_confirmation, commandName, command);
+        String log = context.getString(R.string.message_command_confirmation, commandName, command.replace(prefs.getPassword(), "%PASS%"));
         new ServerLogManager(context).log(context.getString(R.string.command), log);
 
         log = context.getString(R.string.message_confirmation, commandName);

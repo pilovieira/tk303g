@@ -66,5 +66,10 @@
     <string name="main_configs">Main Configs</string>
     <string name="basic_operations">Basic Operations</string>
     <string name="please_add_call_permission">Please add call permission!</string>
+    <string name="lat">Lat:</string>
+    <string name="lng">Lng:</string>
+    <string name="speed">Speed:</string>
+    <string name="saved">Saved:</string>
+    <string name="speed_kmh">"%1$s Km/h"</string>
 
 </resources>
