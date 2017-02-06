@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tracker TK303G</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_header_description">Main Menu</string>
+    <string name="activity_main_drawer_operations">Operations</string>
+    <string name="activity_main_drawer_configurations">Configurations</string>
+    <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
+    <string name="fragment_info_info_title">Info</string>
+    <string name="notification_default_text">Click here for more details</string>
+    <string name="fragment_info_server_log_history">Server Log</string>
+    <string name="activity_main_drawer_user_manual">User Manual</string>
+    <string name="fragment_server_log_clear_log">Clear</string>
+    <string name="activity_main_drawer_log_info">Log Info</string>
+    <string name="lock_vehicle">Lock Vehicle</string>
+    <string name="unlock_vehicle">Unlock Vehicle</string>
+    <string name="get_location">Get Location</string>
+    <string name="obtain_firmware_version">Obtain Firmware Version</string>
+    <string name="gps_restart">GPS Restart</string>
+    <string name="tracker_restart">Tracker Restart</string>
+    <string name="get_tracker_info">Get Tracker Info</string>
+    <string name="set_tracker_language">Set Tracker Language</string>
+    <string name="configure_apn">Configure APN</string>
+    <string name="perform_factory_reset">Perform Factory Reset</string>
+    <string name="configure_ip">Configure IP</string>
+    <string name="product_registration">Product Registration</string>
+    <string name="pair_number">Pair Number</string>
+    <string name="delete_number">Delete Number</string>
+    <string name="delete_all_paired_numbers">Delete All Paired Numbers</string>
+    <string name="view_paired_numbers">View Paired Numbers</string>
+    <string name="change_password">Change Password</string>
+    <string name="set_virtual_fence">Set Virtual Fence</string>
+    <string name="clear_virtual_fence">Clear Virtual Fence</string>
+    <string name="set_over_speed_alarm">Set Over Speed Alarm</string>
+    <string name="tracker_number">Tracker Number</string>
+    <string name="msg_configure_tracker_number">Please configure your tracker number!</string>
+    <string name="message_confirmation">Command \'%1$s\' has sent successfully!</string>
+    <string name="message_command_confirmation">Command \'%1$s\' has sent successfully!\n%2$s</string>
+    <string name="command">Command</string>
+    <string name="user_manual">User Manual</string>
+    <string name="chinese">Chinese</string>
+    <string name="english">English</string>
+    <string name="change">Change</string>
+    <string name="cancel">Cancel</string>
+    <string name="location">Location</string>
+    <string name="info">Info</string>
+    <string name="number">Number</string>
+    <string name="okay">Okay</string>
+    <string name="ip">IP</string>
+    <string name="port">Port</string>
+    <string name="old_password">Old (6 digit)</string>
+    <string name="new_password">New (6 digit)</string>
+    <string name="over_speed_range"><![CDATA[0 < N < 1000]]></string>
+    <string name="operator">Operator</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="car_station_id">Car Station ID</string>
+
+</resources>

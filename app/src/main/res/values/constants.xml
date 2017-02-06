@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="DATABASE_NAME">AccurateTrackerH06Database</string>
+    <integer name="DATABASE_VERSION">1</integer>
+    <string name="BANNER_AD_UNIT_ID" translatable="false">ca-app-pub-3459908964898326/7690677717</string>
+</resources>

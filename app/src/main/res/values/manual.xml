@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_manual_literal" translatable="false">
+6.Terminal parameter is set\n
+The following each function parameters Settings in the instruction format, the first letters are capital effectively, the instructions are English punctuation punctuation; Part of the instructions to reply\n
+Send corresponding inquires the instructions will return to the corresponding inquires terminal content\n
+\n
+6.1 language setting command : LE (English model)\n
+6.2 obtain the version number command : HGT\n
+6.3 Restore the factory command::RST pls wait 3 minute.\n
+6.4 APN settings command : APN: AA, XX, YY (AA is the operator, XX is user name and YY is password)\n
+Example:APN:cmnet,,,\n
+6.5 IP settings command : IP: IP mode # IP address # port #\n
+Example:IP:1# 58.61.155.175#8169#\n
+6.6 Product registration command :\n
+ZC + password + # + phone number ( master number) + # + car station ID\n
+Example: ZC000000 # 15888185569 # 13677198895\n
+Note: Only after you registered successfully\n
+6.7 Pair number set command :SPN + phone number #\n
+Example: SPN13685456894 # 13688724474 # 1368529088 # 1358520647 #\n
+6.8 delete the corresponding vice No.\n
+Example: DSPN13685456894 #\n
+6.9 delete all pair number :\n
+Example: DSPN\n
+Reply : Delete all pair number success\n
+6.10.query pair number\n
+Example: FSPN\n
+6.11 modify registration password\n
+MP old password + new password, such as: MP000000987654\n
+6.12. fence set\n
+multi-mode fence setting command : the fence code + radius + fence mode Such as: RCA999 # 1\n
+fence mode is set separately\n
+Example: RCMA1\n
+6.13 clear fence instructions: DRC. Clear all fences\n
+6.14 fix time and fix position\n
+Vehicle motion:XTn(5 n 65530)\n
+Vehicle static: NXTn(5 n 65530, Default 5 minutes)\n
+6.15 Check , location, latitude and longitude\n
+The status check ::DW\n
+Replay:northern latitude22.6409533 east longitude: 114.0319983 Time:2011-08-06 10:33:11.\n
+6.16 oil control\n
+disconnect the power source (oil) command : DO\n
+Open power source (oil) command : TO\n
+6.17 anti-theft alarm\n
+telephone alarm command : BJMA\n
+SMS alarm: BJMB\n
+6.18 GPS restart: GPSCQ\n
+6.19 Equipment restart:SBCQ\n
+6.20 Over- speed alarm set command : ODn ((0 = N = 1000) 0 = close)\n
+6.21 Many parameters Settings: SZ: IP. Port, the APN, username, password, ACC open interval time upload, ACC closed interval time preaching.\n
+Example :SZ:www.gps588.com,8169,cmnet,,,15,15\n
+Example:SZ: 58.61.155.175,8169,cmnet,,,15,15\n
+6.22 Inquire the equipment information\n
+Send to SMS:CX, return ID ,IP APN ,car move when the heartbeat interval time and time interval between car stop\n
+6.23 Security Settings\n
+Open security: KFD, close security: GFD\n
+Note: open security after 3 minutes, triggered alarm will only take effect
+    </string>
+
+</resources>
