@@ -71,8 +71,10 @@
     <string name="speed">Speed:</string>
     <string name="saved">Saved:</string>
     <string name="speed_kmh">"%1$s Km/h"</string>
-    <string name="title_activity_location_history">Map</string>
+    <string name="title_activity_location_history">Location History</string>
     <string name="location_history">Location History</string>
     <string name="marker_detail">"Time: %1$s - Speed: %2$s Km/h"</string>
+    <string name="pages">Pages</string>
+    <string name="view">View</string>
 
 </resources>

@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
+import br.com.pilovieira.tk303g.location.LocationLogDigester;
 
 public class LogListAdapter extends BaseAdapter {
 
@@ -73,36 +74,13 @@ public class LogListAdapter extends BaseAdapter {
         LocationTag tag = (LocationTag) view.getTag();
         tag.creationDate.setText(dateFormat.format(log.getDate()));
         tag.title.setText(log.getTitle());
-
-        try {
-            StringReader sr = new StringReader(log.getMessage());
-            BufferedReader br = new BufferedReader(sr);
-
-            String line = br.readLine();
-            while (line != null) {
-                try {
-                    processLine(tag, line);
-                } catch (Exception ex) {}
-                line = br.readLine();
-            }
-            br.close();
-            sr.close();
-        } catch (Exception ex) {}
+        LocationLogDigester digester = new LocationLogDigester(log);
+        tag.lat.setText(digester.getLat());
+        tag.lng.setText(digester.getLng());
+        tag.speed.setText(context.getString(R.string.speed_kmh, digester.getSpeed()));
+        tag.saved.setText(digester.getTime());
 
         ListenerProvider.openGeo(view, tag.lat.getText().toString(), tag.lng.getText().toString());
-    }
-
-    private void processLine(LocationTag tag, String line) {
-        if (line == null)
-            return;
-        if (line.contains("lat:"))
-            tag.lat.setText(line.trim().split(" ")[0].split(":")[1]);
-        if (line.contains("lon:"))
-            tag.lng.setText(line.trim().split("lon:")[1]);
-        if (line.contains("speed:"))
-            tag.speed.setText(context.getString(R.string.speed_kmh, line.trim().split(":")[1]));
-        if (line.contains("T:"))
-            tag.saved.setText(line.trim().split("T:")[1]);
     }
 
     private View prepare(View view, ServerLog log) {
