@@ -26,6 +26,12 @@ public class ServerLogManager {
         Collections.sort(all);
         return all;
     }
+
+    public List<ServerLog> getLogs(String title) {
+        List<ServerLog> search = DaoManager.search(context, ServerLog.class, "title", title);
+        Collections.sort(search);
+        return search;
+    }
 	
 	public void clearLogs() {
         try {

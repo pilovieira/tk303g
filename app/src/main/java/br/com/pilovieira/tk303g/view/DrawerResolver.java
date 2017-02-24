@@ -1,5 +1,6 @@
 package br.com.pilovieira.tk303g.view;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 
 import br.com.pilovieira.tk303g.R;
+import br.com.pilovieira.tk303g.location.LocationHistoryActivity;
 import br.com.pilovieira.tk303g.log.InfoFragment;
 
 public class DrawerResolver implements NavigationView.OnNavigationItemSelectedListener{
@@ -19,6 +21,22 @@ public class DrawerResolver implements NavigationView.OnNavigationItemSelectedLi
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
+        resolveActivities(menuItem);
+        resolveFragments(menuItem);
+
+        closeDrawers();
+        return true;
+    }
+
+    private void resolveActivities(MenuItem menuItem) {
+        switch(menuItem.getItemId()) {
+            case R.id.nav_location_history:
+                activity.startActivity(new Intent(activity, LocationHistoryActivity.class));
+                break;
+        }
+    }
+
+    private void resolveFragments(MenuItem menuItem) {
         Fragment fragment = null;
 
         switch(menuItem.getItemId()) {
@@ -31,6 +49,8 @@ public class DrawerResolver implements NavigationView.OnNavigationItemSelectedLi
             case R.id.nav_main_configs:
                 fragment = new MainConfigsFragment();
                 break;
+            default:
+                return;
         /*    case R.id.nav_advanced_configs:
                 fragment = new AdvancedConfigsFragment();
                 break;*/
@@ -40,9 +60,6 @@ public class DrawerResolver implements NavigationView.OnNavigationItemSelectedLi
 
         menuItem.setChecked(true);
         activity.setTitle(menuItem.getTitle());
-
-        closeDrawers();
-        return true;
     }
 
     private void closeDrawers() {
