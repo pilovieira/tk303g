@@ -36,21 +36,21 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
                 <Button
-                    android:id="@+id/btn_get_location"
+                    android:id="@+id/btnGetLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/get_location"
                     style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
-                    android:id="@+id/btn_lock_vehicle"
+                    android:id="@+id/btnLockVehicle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/lock_vehicle"
                     style="@style/Widget.AppCompat.Button.Colored"/>
 
                 <Button
-                    android:id="@+id/btn_unlock_vehicle"
+                    android:id="@+id/btnUnlockVehicle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/unlock_vehicle"
