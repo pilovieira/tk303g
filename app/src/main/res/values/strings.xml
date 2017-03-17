@@ -31,7 +31,7 @@
     <string name="delete_number">Delete Number</string>
     <string name="delete_all_paired_numbers">Delete All Paired Numbers</string>
     <string name="view_paired_numbers">View Paired Numbers</string>
-    <string name="change_password">Change Password</string>
+    <string name="change_tracker_password">Change Tracker Password</string>
     <string name="set_virtual_fence">Set Virtual Fence</string>
     <string name="clear_virtual_fence">Clear Virtual Fence</string>
     <string name="set_over_speed_alarm">Set Over Speed Alarm</string>
@@ -76,5 +76,7 @@
     <string name="marker_detail">"Time: %1$s - Speed: %2$s Km/h"</string>
     <string name="pages">Pages</string>
     <string name="view">View</string>
+    <string name="advanced_config_commands">Advanced Config Commands</string>
+    <string name="begin">Begin</string>
 
 </resources>

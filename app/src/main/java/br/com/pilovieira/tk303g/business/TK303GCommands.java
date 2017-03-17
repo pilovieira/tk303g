@@ -34,6 +34,10 @@ public class TK303GCommands {
         return go("resume#");
     }
 
+    public String begin() {
+        return go("begin#");
+    }
+
     public String changePassword(String oldPass, String newPass) {
         return go(String.format("password%s %s", oldPass, newPass));
     }

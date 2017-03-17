@@ -55,9 +55,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.j256.ormlite:ormlite-android:4.45'
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    compile 'com.google.android.gms:play-services-ads:9.8.0'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile group: 'com.jakewharton', name: 'butterknife', version: '7.0.1'
+    compile 'com.android.support:design:25.3.0'
+    compile 'com.google.android.gms:play-services-ads:9.8.0' //versao maxima compativel com api v9
     compile 'com.google.android.gms:play-services:9.8.0'
     testCompile 'junit:junit:4.12'
 }

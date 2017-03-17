@@ -17,10 +17,10 @@
                     android:id="@+id/nav_main_configs"
                     android:icon="@drawable/ic_settings_applications_black_24px"
                     android:title="@string/main_configs" />
-                <!--        <item
-                            android:id="@+id/nav_advanced_configs"
-                            android:icon="@drawable/ic_settings_applications_black_24px"
-                            android:title="@string/advanced_configs" /> -->
+                <item
+                    android:id="@+id/nav_advanced_configs"
+                    android:icon="@drawable/ic_settings_applications_black_24px"
+                    android:title="@string/advanced_configs" />
             </group>
         </menu>
     </item>
