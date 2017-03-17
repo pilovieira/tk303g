@@ -66,6 +66,9 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
     }
 
     private void animateCamera() {
+        if (markers.isEmpty())
+            return;
+
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
         for (Marker marker : markers)
             builder.include(marker.getPosition());
