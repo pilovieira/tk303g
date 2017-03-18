@@ -19,12 +19,14 @@ public class OperationsFragment extends Fragment {
 
     private TK303GCommands commands;
     private CommonOperations common;
+    private SMSEmitter emitter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         commands = new TK303GCommands(getContext());
         common = new CommonOperations(getContext());
+        emitter = new SMSEmitter(getContext());
     }
 
     @Override
@@ -51,12 +53,17 @@ public class OperationsFragment extends Fragment {
 
     @OnClick(R.id.btnMonitor)
     public void monitorAction() {
-        new SMSEmitter(getContext()).emit(getString(R.string.monitor), commands.monitor());
+        emitter.emit(getString(R.string.monitor), commands.monitor());
     }
 
     @OnClick(R.id.btnTracker)
     public void trackerAction() {
-        new SMSEmitter(getContext()).emit(getString(R.string.tracker), commands.tracker());
+        emitter.emit(getString(R.string.tracker), commands.tracker());
+    }
+
+    @OnClick(R.id.btnCheckStatus)
+    public void checkStatusAction() {
+        emitter.emit(getString(R.string.check_status), commands.check());
     }
 
 }

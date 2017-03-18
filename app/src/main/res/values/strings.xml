@@ -6,7 +6,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="activity_main_drawer_operations">Operations</string>
+    <string name="operation_commands">Operation Commands</string>
     <string name="advanced_configs">Advanced Configs</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
     <string name="fragment_info_info_title">Info</string>
@@ -14,7 +14,7 @@
     <string name="fragment_info_server_log_history">Server Log</string>
     <string name="activity_main_drawer_user_manual">User Manual</string>
     <string name="fragment_server_log_clear_log">Clear</string>
-    <string name="activity_main_drawer_log_info">Log Info</string>
+    <string name="log_info">Log Info</string>
     <string name="lock_vehicle">Lock Vehicle</string>
     <string name="unlock_vehicle">Unlock Vehicle</string>
     <string name="get_location">Get Location</string>
@@ -63,7 +63,7 @@
     <string name="main_config_commands">Main Config Commands</string>
     <string name="authorize_number">Authorize Number</string>
     <string name="remove_number">Remove Number</string>
-    <string name="main_configs">Main Configs</string>
+    <string name="config_commands">Config Commands</string>
     <string name="basic_operations">Basic Operations</string>
     <string name="please_add_call_permission">Please add call permission!</string>
     <string name="lat">Lat:</string>
@@ -77,8 +77,14 @@
     <string name="pages">Pages</string>
     <string name="view">View</string>
     <string name="advanced_config_commands">Advanced Config Commands</string>
-    <string name="begin">Begin</string>
+    <string name="factory_reset_begin">Factory Reset (Begin)</string>
     <string name="monitor">Change to Monitor</string>
     <string name="tracker">Change to Tracker</string>
+    <string name="config_parameters">Config Parameters</string>
+    <string name="tracker_mode">Tracker Mode</string>
+    <string name="check_status">Check Status</string>
+    <string name="adjust_timezone">Adjust TimeZone</string>
+    <string name="time_zone">Time Zone</string>
+    <string name="restart_tracker">Restart Tracker</string>
 
 </resources>

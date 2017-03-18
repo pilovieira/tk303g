@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.OperationsFragment">
+    tools:context=".view.ParametersFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,11 +11,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_vertical_margin">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/config_parameters"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,39 +35,19 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin">
 
                 <TextView
-                    android:text="@string/basic_operations"
+                    android:text="@string/tracker_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/title_tracker_number"
                     android:gravity="center_horizontal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                <Button
-                    android:id="@+id/btnGetLocation"
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/get_location"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
-
-                <Button
-                    android:id="@+id/btnLockVehicle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lock_vehicle"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
-
-                <Button
-                    android:id="@+id/btnUnlockVehicle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unlock_vehicle"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
-
-                <Button
-                    android:id="@+id/btnCheckStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/check_status"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/textTrackerNumber" />
             </LinearLayout>
 
             <LinearLayout
@@ -75,28 +62,21 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin">
 
                 <TextView
-                    android:text="@string/tracker_mode"
+                    android:text="@string/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-                <Button
-                    android:id="@+id/btnMonitor"
+                <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/monitor"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
-
-                <Button
-                    android:id="@+id/btnTracker"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tracker"
-                    style="@style/Widget.AppCompat.Button.Colored"/>
+                    android:inputType="numberPassword"
+                    android:ems="6"
+                    android:id="@+id/textPassword" />
             </LinearLayout>
 
         </LinearLayout>
-
     </ScrollView>
+
 </FrameLayout>

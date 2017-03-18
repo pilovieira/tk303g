@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_content_paste_black_24dp"
-            android:title="@string/activity_main_drawer_log_info" />
+            android:title="@string/log_info" />
         <item
             android:id="@+id/nav_operations"
             android:icon="@drawable/ic_place_black_24dp"
-            android:title="@string/activity_main_drawer_operations" />
+            android:title="@string/operation_commands" />
         <item
-            android:id="@+id/nav_main_configs"
+            android:id="@+id/nav_configs"
             android:icon="@drawable/ic_settings_applications_black_24px"
-            android:title="@string/main_configs" />
+            android:title="@string/config_commands" />
         <item
-            android:id="@+id/nav_advanced_configs"
-            android:icon="@drawable/ic_settings_applications_black_24px"
-            android:title="@string/advanced_configs" />
+            android:id="@+id/nav_parameters"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/config_parameters" />
     </group>
 
     <item

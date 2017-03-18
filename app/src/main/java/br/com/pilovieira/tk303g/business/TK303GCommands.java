@@ -46,6 +46,14 @@ public class TK303GCommands {
         return go("tracker#");
     }
 
+    public String check() {
+        return go("check#");
+    }
+
+    public String reset() {
+        return go("reset#");
+    }
+
     public String changePassword(String oldPass, String newPass) {
         return go(String.format("password%s %s", oldPass, newPass));
     }
@@ -56,6 +64,10 @@ public class TK303GCommands {
 
     public String deleteNumber(String number) {
         return go(String.format("noadmin# %s", number));
+    }
+
+    public String timeZone(String timezone) {
+        return go(String.format("time zone# %s", timezone));
     }
 
 }

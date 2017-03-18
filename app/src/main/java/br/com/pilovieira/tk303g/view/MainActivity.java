@@ -14,7 +14,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -121,11 +120,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_operations:
                 replaceFragment(new OperationsFragment());
                 break;
-            case R.id.nav_main_configs:
-                replaceFragment(new MainConfigsFragment());
+            case R.id.nav_configs:
+                replaceFragment(new ConfigsFragment());
                 break;
-            case R.id.nav_advanced_configs:
-                replaceFragment(new AdvancedConfigsFragment());
+            case R.id.nav_parameters:
+                replaceFragment(new ParametersFragment());
                 break;
             case R.id.nav_location_history:
                 startActivity(new Intent(this, LocationHistoryActivity.class));

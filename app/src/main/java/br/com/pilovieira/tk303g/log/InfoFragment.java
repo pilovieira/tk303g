@@ -12,37 +12,35 @@ import android.widget.ListView;
 import java.util.List;
 
 import br.com.pilovieira.tk303g.R;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class InfoFragment extends Fragment {
 
     private View view;
+    @Bind(R.id.listLog) ListView logList;
+    @Bind(R.id.btnLogClear) Button btnClear;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.fragment_info, container, false);
+        ButterKnife.bind(this, view);
 
         mountLogsList();
-        mountBtnClear();
 
-        return this.view;
+        return view;
     }
 
     private void mountLogsList() {
-        ListView logList = (ListView) this.view.findViewById(R.id.fragment_info_message_list);
         List<ServerLog> logs = new ServerLogManager(getContext()).getLogs();
         logList.setAdapter(new LogListAdapter(getContext(), logs));
     }
 
-    private void mountBtnClear() {
-        Button btnClear = (Button) this.view.findViewById(R.id.fragment_server_log_clear);
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new ServerLogManager(view.getContext()).clearLogs();
-
-                mountLogsList();
-            }
-        });
+    @OnClick(R.id.btnLogClear)
+    public void logClearClick() {
+        new ServerLogManager(view.getContext()).clearLogs();
+        mountLogsList();
     }
 
 }
