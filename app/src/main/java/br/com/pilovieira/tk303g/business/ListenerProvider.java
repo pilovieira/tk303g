@@ -22,66 +22,6 @@ import static android.content.Intent.ACTION_VIEW;
 
 public class ListenerProvider {
 
-    public static void emitCommandListener(View view, int id, final String command) {
-        final Button button = (Button) view.findViewById(id);
-        emitCommandListener(button, button.getText().toString(), command);
-    }
-
-    public static void emitCommandListener(View view, final String text, final String command) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new SMSEmitter(view.getContext()).emit(text, command);
-            }
-        });
-    }
-
-    public static void locationListener(View view) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context context = view.getContext();
-                Prefs prefs = new Prefs(context);
-                String number = prefs.getTrackerNumber();
-                if (number.isEmpty()) {
-                    Toast.makeText(context, R.string.msg_configure_tracker_number, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                TK303GCommands commands = new TK303GCommands(context);
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse(commands.getLocation()));
-                if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(context, R.string.please_add_call_permission, Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                context.startActivity(intent);
-            }
-        });
-    }
-
-    public static void lock(View view) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context context = view.getContext();
-                TK303GCommands commands = new TK303GCommands(context);
-                new SMSEmitter(view.getContext()).emit(context.getString(R.string.lock_vehicle), commands.lockVehicle());
-            }
-        });
-    }
-
-    public static void unlock(View view) {
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context context = view.getContext();
-                TK303GCommands commands = new TK303GCommands(context);
-                new SMSEmitter(view.getContext()).emit(context.getString(R.string.unlock_vehicle), commands.unlockVehicle());
-            }
-        });
-    }
-
     public static void openGeo(View view, final String lat, final String lng) {
         view.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -23,7 +23,7 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_hot_get_location"
+                android:id="@+id/btnHotGetLocation"
                 android:layout_weight="1"
                 style="@style/Widget.AppCompat.Button.Colored"
                 app:srcCompat="@drawable/ic_my_location_white_24dp" />
@@ -31,7 +31,7 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_hot_lock_vehicle"
+                android:id="@+id/btnHotLock"
                 android:layout_weight="1"
                 style="@style/Widget.AppCompat.Button.Colored"
                 app:srcCompat="@drawable/ic_lock_outline_white_24dp" />
@@ -39,7 +39,7 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_hot_unlock_vehicle"
+                android:id="@+id/btnHotUnlock"
                 android:layout_weight="1"
                 android:elevation="0dp"
                 style="@style/Widget.AppCompat.Button.Colored"

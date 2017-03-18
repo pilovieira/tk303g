@@ -60,5 +60,6 @@ dependencies {
     compile 'com.android.support:design:25.3.0'
     compile 'com.google.android.gms:play-services-ads:9.8.0' //versao maxima compativel com api v9
     compile 'com.google.android.gms:play-services:9.8.0'
+    compile 'com.android.support:multidex:1.0.1'
     testCompile 'junit:junit:4.12'
 }

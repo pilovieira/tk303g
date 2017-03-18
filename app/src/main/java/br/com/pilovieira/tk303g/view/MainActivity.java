@@ -1,10 +1,13 @@
 package br.com.pilovieira.tk303g.view;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,57 +15,67 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import br.com.pilovieira.tk303g.R;
-import br.com.pilovieira.tk303g.business.TK303GCommands;
-import br.com.pilovieira.tk303g.business.ListenerProvider;
+import br.com.pilovieira.tk303g.business.CommonOperations;
+import br.com.pilovieira.tk303g.location.LocationHistoryActivity;
+import br.com.pilovieira.tk303g.log.InfoFragment;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final String KEY_FRAGMENT = "fragment";
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.drawer_layout) DrawerLayout drawer;
+    @Bind(R.id.nav_view) NavigationView navigationView;
+    @Bind(R.id.adView) AdView mAdView;
+
+    private CommonOperations common;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        configureToolbar();
-        configureNavigationMenu();
-        requestSMSPermission();
-        requestCallPermission();
-        initializeHotButtons();
-        configureAdView();
-    }
+        common = new CommonOperations(getBaseContext());
 
-    private void configureToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        configureDrawer();
+        configureNavigationMenu();
+        requestPermissions();
+        mAdView.loadAd(new AdRequest.Builder().build());
+    }
+
+    private void configureDrawer() {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
 
     private void configureNavigationMenu() {
-        final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(new DrawerResolver(this));
-        loadInitFragment(navigationView.getMenu());
+        navigationView.setNavigationItemSelectedListener(this);
+
+        MenuItem item = navigationView.getMenu().getItem(0);
+        item.setChecked(true);
+        onNavigationItemSelected(item);
     }
 
-    private void configureAdView() {
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-    }
-
-    private void loadInitFragment(Menu menu) {
-        Bundle extras = getIntent().getExtras();
-        int menuItemId = extras == null ? R.id.nav_info : extras.getInt(KEY_FRAGMENT, R.id.nav_info);
-        new DrawerResolver(this).onNavigationItemSelected(menu.findItem(menuItemId));
+    private void requestPermissions() {
+        String[] permissions = new String[] {
+                android.Manifest.permission.SEND_SMS,
+                Manifest.permission.CALL_PHONE,
+                Manifest.permission.ACCESS_FINE_LOCATION
+        };
+        if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, permissions, 1000);
     }
 
     @Override
@@ -84,21 +97,49 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    private void requestSMSPermission() {
-        String permission = android.Manifest.permission.SEND_SMS;
-        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[]{permission}, 1000);
+    @OnClick(R.id.btnHotGetLocation)
+    public void locationAction(View view) {
+        common.locationAction(view);
     }
 
-    private void requestCallPermission() {
-        String permission = Manifest.permission.CALL_PHONE;
-        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, new String[]{permission}, 1001);
+    @OnClick(R.id.btnHotLock)
+    public void lockAction() {
+        common.lockAction();
     }
 
-    private void initializeHotButtons() {
-        ListenerProvider.locationListener(findViewById(R.id.btn_hot_get_location));
-        ListenerProvider.lock(findViewById(R.id.btn_hot_lock_vehicle));
-        ListenerProvider.unlock(findViewById(R.id.btn_hot_unlock_vehicle));
+    @OnClick(R.id.btnHotUnlock)
+    public void unlockAction() {
+        common.unlockAction();
     }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        switch(menuItem.getItemId()) {
+            case R.id.nav_info:
+                replaceFragment(new InfoFragment());
+                break;
+            case R.id.nav_operations:
+                replaceFragment(new OperationsFragment());
+                break;
+            case R.id.nav_main_configs:
+                replaceFragment(new MainConfigsFragment());
+                break;
+            case R.id.nav_advanced_configs:
+                replaceFragment(new AdvancedConfigsFragment());
+                break;
+            case R.id.nav_location_history:
+                startActivity(new Intent(this, LocationHistoryActivity.class));
+                break;
+        }
+
+        menuItem.setChecked(true);
+        drawer.closeDrawers();
+        return true;
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main_frame, fragment).commit();
+    }
+
 }

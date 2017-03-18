@@ -55,6 +55,20 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unlock_vehicle"
                     style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:id="@+id/btnMonitor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monitor"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:id="@+id/btnTracker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tracker"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
             </LinearLayout>
 
         </LinearLayout>

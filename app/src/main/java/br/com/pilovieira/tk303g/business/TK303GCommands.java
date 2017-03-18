@@ -38,6 +38,14 @@ public class TK303GCommands {
         return go("begin#");
     }
 
+    public String monitor() {
+        return go("monitor#");
+    }
+
+    public String tracker() {
+        return go("tracker#");
+    }
+
     public String changePassword(String oldPass, String newPass) {
         return go(String.format("password%s %s", oldPass, newPass));
     }
@@ -50,54 +58,4 @@ public class TK303GCommands {
         return go(String.format("noadmin# %s", number));
     }
 
-    public String firmwareVersion() {
-        return "HGT";
-    }
-
-    public String trackerInfo() {
-        return "CX";
-    }
-
-    public String gpsRestart() {
-        return "GPSCQ";
-    }
-
-    public String trackerRestart() {
-        return "SBCQ";
-    }
-
-    public String trackerLanguage(int index) {
-        return new String[]{"LC", "LE"}[index];
-    }
-
-    public String factoryReset() {
-        return "RST";
-    }
-
-    public String configureAPN(String operator, String user, String pass) {
-        return String.format("APN:%s,%s,%s,", operator, user, pass);
-    }
-    public String configureIp(String ip, String port) {
-        return String.format("IP:1# %s#%s#", ip, port);
-    }
-
-    public String configureProductRegistration(String pass, String number, String carId) {
-        return String.format("ZC%s # %s # %s", pass, number, carId);
-    }
-
-    public String deleteAllPairedNumbers() {
-        return "DSPN";
-    }
-
-    public String viewPairedNumbers() {
-        return "FSPN";
-    }
-
-    public String clearVirtualFences() {
-        return "DRC";
-    }
-
-    public String setOverSpeedAlarm(String speed) {
-        return String.format("OD%s", speed);
-    }
 }

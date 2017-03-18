@@ -1,38 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:title="@string/pages">
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/nav_info"
-                    android:icon="@drawable/ic_content_paste_black_24dp"
-                    android:title="@string/activity_main_drawer_log_info" />
-                <item
-                    android:id="@+id/nav_operations"
-                    android:icon="@drawable/ic_place_black_24dp"
-                    android:title="@string/activity_main_drawer_operations" />
-                <item
-                    android:id="@+id/nav_main_configs"
-                    android:icon="@drawable/ic_settings_applications_black_24px"
-                    android:title="@string/main_configs" />
-                <item
-                    android:id="@+id/nav_advanced_configs"
-                    android:icon="@drawable/ic_settings_applications_black_24px"
-                    android:title="@string/advanced_configs" />
-            </group>
-        </menu>
-    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_content_paste_black_24dp"
+            android:title="@string/activity_main_drawer_log_info" />
+        <item
+            android:id="@+id/nav_operations"
+            android:icon="@drawable/ic_place_black_24dp"
+            android:title="@string/activity_main_drawer_operations" />
+        <item
+            android:id="@+id/nav_main_configs"
+            android:icon="@drawable/ic_settings_applications_black_24px"
+            android:title="@string/main_configs" />
+        <item
+            android:id="@+id/nav_advanced_configs"
+            android:icon="@drawable/ic_settings_applications_black_24px"
+            android:title="@string/advanced_configs" />
+    </group>
 
     <item
-        android:title="@string/view">
-        <menu>
-            <item
-                android:id="@+id/nav_location_history"
-                android:icon="@drawable/ic_history_black_24dp"
-                android:title="@string/location_history" />
-        </menu>
-    </item>
+        android:id="@+id/nav_location_history"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="@string/location_history" />
 
 </menu>

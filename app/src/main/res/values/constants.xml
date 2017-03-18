@@ -2,5 +2,4 @@
 <resources>
     <string name="DATABASE_NAME">CobanTK303GDatabase</string>
     <integer name="DATABASE_VERSION">1</integer>
-    <string name="BANNER_AD_UNIT_ID" translatable="false">ca-app-pub-3459908964898326/9315073319</string>
 </resources>

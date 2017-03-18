@@ -55,9 +55,7 @@ public class SMSReceiver extends BroadcastReceiver {
 		builder.setId(R.id.nav_info);
 		builder.setTitle(context.getString(R.string.requisition_resolver_info_title));
 
-		Intent intent = new Intent(context, MainActivity.class);
-		intent.putExtra(MainActivity.KEY_FRAGMENT, R.id.nav_info);
-		builder.setResult(intent);
+		builder.setResult(new Intent(context, MainActivity.class));
 
 		builder.build();
 	}

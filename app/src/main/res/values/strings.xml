@@ -78,5 +78,7 @@
     <string name="view">View</string>
     <string name="advanced_config_commands">Advanced Config Commands</string>
     <string name="begin">Begin</string>
+    <string name="monitor">Change to Monitor</string>
+    <string name="tracker">Change to Tracker</string>
 
 </resources>
