@@ -1,9 +1,11 @@
 package br.com.pilovieira.tk303g.view;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,11 +73,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnBegin)
-    public void beginAction() {
-        emitter.emit(getString(R.string.factory_reset_begin), commands.begin());
-    }
-
     @OnClick(R.id.btnTimeZone)
     public void btnTimeZoneClicked() {
         ListenerProvider.openDialogOneParam(this, btnTimeZone, R.string.time_zone, new ListenerProvider.CommandOneParam() {
@@ -89,6 +86,20 @@ public class ConfigsFragment extends Fragment {
     @OnClick(R.id.btnRestart)
     public void restartAction() {
         emitter.emit(getString(R.string.restart_tracker), commands.reset());
+    }
+
+    @OnClick(R.id.btnBegin)
+    public void beginAction() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle(R.string.are_you_sure);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                emitter.emit(getString(R.string.factory_reset_begin), commands.begin());
+            }
+        });
+        builder.setNegativeButton(R.string.no, null);
+        builder.show();
     }
 
 }

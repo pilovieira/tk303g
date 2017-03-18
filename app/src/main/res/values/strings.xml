@@ -86,5 +86,8 @@
     <string name="adjust_timezone">Adjust TimeZone</string>
     <string name="time_zone">Time Zone</string>
     <string name="restart_tracker">Restart Tracker</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>
