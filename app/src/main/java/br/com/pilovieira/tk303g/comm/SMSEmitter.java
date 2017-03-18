@@ -38,7 +38,7 @@ public class SMSEmitter {
 	}
 
     private void log(String commandName, String command) {
-        String log = context.getString(R.string.message_command_confirmation, commandName, command.replace(prefs.getPassword(), "%PASS%"));
+        String log = context.getString(R.string.message_command_confirmation, commandName, command.replace(prefs.getPassword(), "******"));
         new ServerLogManager(context).log(context.getString(R.string.command), log);
 
         log = context.getString(R.string.message_confirmation, commandName);

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
+import android.widget.Toast;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
@@ -27,7 +28,7 @@ public class CommonOperations {
         Prefs prefs = new Prefs(context);
         String number = prefs.getTrackerNumber();
         if (number.isEmpty()) {
-            Snackbar.make(view, R.string.msg_configure_tracker_number, Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.msg_configure_tracker_number, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -35,7 +36,7 @@ public class CommonOperations {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(commands.getLocation()));
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            Snackbar.make(view, R.string.please_add_call_permission, Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.please_add_call_permission, Toast.LENGTH_SHORT).show();
             return;
         }
 
