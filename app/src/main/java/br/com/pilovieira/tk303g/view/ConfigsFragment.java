@@ -46,7 +46,7 @@ public class ConfigsFragment extends Fragment {
         ListenerProvider.openDialogTwoParam(this, btnChangePassword, R.string.old_password, R.string.new_password, new ListenerProvider.CommandTwoParam() {
             @Override
             public void apply(String oldPass, String newPass) {
-                new SMSEmitter(getContext()).emit(btnChangePassword.getText().toString(), commands.changePassword(oldPass, newPass));
+                emitter.emit(btnChangePassword.getText().toString(), commands.changePassword(oldPass, newPass));
             }
         });
     }
@@ -56,7 +56,7 @@ public class ConfigsFragment extends Fragment {
         ListenerProvider.openDialogOneParam(this, btnAuthorize, R.string.number, new ListenerProvider.CommandOneParam() {
             @Override
             public void apply(String number) {
-                new SMSEmitter(getContext()).emit(btnAuthorize.getText().toString(), commands.authorizeNumber(number));
+                emitter.emit(btnAuthorize.getText().toString(), commands.authorizeNumber(number));
             }
         });
     }
@@ -66,7 +66,7 @@ public class ConfigsFragment extends Fragment {
         ListenerProvider.openDialogOneParam(this, btnRemoveAuth, R.string.number, new ListenerProvider.CommandOneParam() {
             @Override
             public void apply(String number) {
-                new SMSEmitter(getContext()).emit(btnRemoveAuth.getText().toString(), commands.deleteNumber(number));
+                emitter.emit(btnRemoveAuth.getText().toString(), commands.deleteNumber(number));
             }
         });
     }
@@ -81,7 +81,7 @@ public class ConfigsFragment extends Fragment {
         ListenerProvider.openDialogOneParam(this, btnTimeZone, R.string.time_zone, new ListenerProvider.CommandOneParam() {
             @Override
             public void apply(String timezone) {
-                new SMSEmitter(getContext()).emit(btnTimeZone.getText().toString(), commands.timeZone(timezone));
+                emitter.emit(btnTimeZone.getText().toString(), commands.timeZone(timezone));
             }
         });
     }

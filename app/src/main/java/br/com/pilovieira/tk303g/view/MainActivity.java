@@ -113,6 +113,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
+        selectItem(menuItem);
+        drawer.closeDrawers();
+        return true;
+    }
+
+    private void selectItem(MenuItem menuItem) {
         switch(menuItem.getItemId()) {
             case R.id.nav_info:
                 replaceFragment(new InfoFragment());
@@ -128,12 +134,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_location_history:
                 startActivity(new Intent(this, LocationHistoryActivity.class));
-                break;
+                return;
         }
 
         menuItem.setChecked(true);
-        drawer.closeDrawers();
-        return true;
     }
 
     private void replaceFragment(Fragment fragment) {
