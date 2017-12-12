@@ -61,6 +61,16 @@ public class OperationsFragment extends Fragment {
         emitter.emit(getString(R.string.tracker), commands.tracker());
     }
 
+    @OnClick(R.id.btnGprsMode)
+    public void gprsModeAction() {
+        emitter.emit(getString(R.string.change_to_gprs), commands.gprs());
+    }
+
+    @OnClick(R.id.btnSmsMode)
+    public void smsModeAction() {
+        emitter.emit(getString(R.string.change_to_sms), commands.sms());
+    }
+
     @OnClick(R.id.btnCheckStatus)
     public void checkStatusAction() {
         emitter.emit(getString(R.string.check_status), commands.check());

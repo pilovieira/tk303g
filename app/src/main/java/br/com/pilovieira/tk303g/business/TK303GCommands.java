@@ -46,6 +46,14 @@ public class TK303GCommands {
         return go("tracker#");
     }
 
+    public String gprs() {
+        return go("gprs#");
+    }
+
+    public String sms() {
+        return go("sms#");
+    }
+
     public String check() {
         return go("check#");
     }

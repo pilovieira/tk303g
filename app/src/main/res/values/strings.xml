@@ -117,4 +117,8 @@
     <string name="speed3Digits">Speed (3 digits)</string>
     <string name="meters4Digits">Meters (4 digits)</string>
     <string name="verify_imei">Verify IMEI</string>
+    <string name="continuous_track">Continuous Track</string>
+    <string name="gprs_sms_mode">GPRS / SMS Mode</string>
+    <string name="change_to_gprs">Change to GPRS</string>
+    <string name="change_to_sms">Change to SMS</string>
 </resources>
