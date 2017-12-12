@@ -27,12 +27,12 @@ public class ServerLogManager {
         return all;
     }
 
-    public List<ServerLog> getLogs(String title) {
-        List<ServerLog> search = DaoManager.search(context, ServerLog.class, "title", title);
+    public List<ServerLog> getLogs(LogType logType) {
+        List<ServerLog> search = DaoManager.search(context, ServerLog.class, "title", logType.name());
         Collections.sort(search);
         return search;
     }
-	
+
 	public void clearLogs() {
         try {
             DaoManager.truncate(context, ServerLog.class);

@@ -80,6 +80,16 @@ public enum LogType {
             if (type.name().equals(name))
                 return type;
 
+        return getLegacy(name);
+    }
+
+    @Deprecated
+    private static LogType getLegacy(String name) {
+        if (name.equals("Location"))
+            return LOCATION;
+        if (name.equals("Command"))
+            return COMMAND;
+
         return INFO;
     }
 

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.pilovieira.tk303g.R;
+import br.com.pilovieira.tk303g.log.LogType;
 import br.com.pilovieira.tk303g.log.ServerLog;
 import br.com.pilovieira.tk303g.log.ServerLogManager;
 
@@ -40,7 +41,7 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        List<ServerLog> locationLogs = new ServerLogManager(getBaseContext()).getLogs(getString(R.string.location));
+        List<ServerLog> locationLogs = new ServerLogManager(getBaseContext()).getLogs(LogType.LOCATION);
 
         createMarkers(locationLogs);
         createPolyLine();
