@@ -8,8 +8,8 @@ android {
         applicationId "br.com.pilovieira.tk303g"
         minSdkVersion 9
         targetSdkVersion 25
-        versionCode 7
-        versionName "2.7"
+        versionCode 8
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
@@ -34,7 +34,7 @@ dependencies {
     })
     compile 'com.j256.ormlite:ormlite-android:4.45'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile group: 'com.jakewharton', name: 'butterknife', version: '7.0.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.google.android.gms:play-services-ads:9.8.0' //versao maxima compativel com api v9
     compile 'com.google.android.gms:play-services:9.8.0'
