@@ -76,6 +76,11 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
+    @OnClick(R.id.btnVerifyImei)
+    public void btnVerifyImeiAction() {
+        emitter.emit(getString(R.string.verify_imei), commands.verifyImei());
+    }
+
     @OnClick(R.id.btnSetApnName)
     public void btnSetApnNameClicked() {
         ListenerProvider.openDialogOneParam(this, btnSetApnName, R.string.apn_name, new ListenerProvider.CommandOneParam() {

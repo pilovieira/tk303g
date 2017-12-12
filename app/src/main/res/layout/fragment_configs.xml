@@ -55,6 +55,13 @@
                     android:text="@string/remove_number"
                     style="@style/Widget.AppCompat.Button.Colored"/>
 
+                <Button
+                    android:id="@+id/btnVerifyImei"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/verify_imei"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
             </LinearLayout>
 
             <LinearLayout

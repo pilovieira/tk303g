@@ -66,6 +66,10 @@ public class TK303GCommands {
         return go(String.format("noadmin# %s", number));
     }
 
+    public String verifyImei() {
+        return go("imei#");
+    }
+
     public String timeZone(String timezone) {
         return go(String.format("time zone# %s", timezone));
     }
@@ -81,4 +85,53 @@ public class TK303GCommands {
     public String setIpAndPort(String ip, String port) {
         return go(String.format("adminip# %s %s", ip, port));
     }
+
+    public String activateAcc() {
+        return go("acc#");
+    }
+
+    public String cancelAcc() {
+        return go("noacc#");
+    }
+
+    public String activateLowBattery() {
+        return go("lowbattery# on");
+    }
+
+    public String cancelLowBattery() {
+        return go("lowbattery# off");
+    }
+
+    public String activateExtPower() {
+        return go("extpower# on");
+    }
+
+    public String cancelExtPower() {
+        return go("extpower# off");
+    }
+
+    public String activateGpsSignalAlert() {
+        return go("gpssignal# on");
+    }
+
+    public String cancelGpsSignalAlert() {
+        return go("gpssignal# off");
+    }
+
+    public String activateMoveAlarm(String meters) {
+        return go(String.format("move# %s", meters));
+    }
+
+    public String cancelMoveAlarm() {
+        return go("nomove#");
+    }
+
+    public String activateSpeedAlarm(String speed) {
+        return go(String.format("speed# %s", speed));
+    }
+
+    public String cancelSpeedAlarm() {
+        return go("nospeed#");
+    }
+
 }

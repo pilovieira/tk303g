@@ -21,6 +21,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+        javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
     }
 
     signingConfigs {
@@ -55,9 +56,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.j256.ormlite:ormlite-android:4.45'
-    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile group: 'com.jakewharton', name: 'butterknife', version: '7.0.1'
-    compile 'com.android.support:design:25.3.0'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.google.android.gms:play-services-ads:9.8.0' //versao maxima compativel com api v9
     compile 'com.google.android.gms:play-services:9.8.0'
     compile 'com.android.support:multidex:1.0.1'

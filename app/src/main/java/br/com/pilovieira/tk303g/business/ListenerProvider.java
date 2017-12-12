@@ -27,13 +27,17 @@ public class ListenerProvider {
     }
 
     public static void openDialogOneParam(final Fragment fragment, final Button btn, final int titleParam1, final CommandOneParam commandParam) {
+        openDialogOneParam(fragment, btn.getText().toString(), titleParam1, commandParam);
+    }
+
+    public static void openDialogOneParam(final Fragment fragment, String title, final int titleParam1, final CommandOneParam commandParam) {
         final View viewOneParam = fragment.getLayoutInflater(null).inflate(R.layout.one_param, null);
         ((TextView) viewOneParam.findViewById(R.id.title_param1)).setText(titleParam1);
 
         final TextView textParam1 = (TextView) viewOneParam.findViewById(R.id.text_param1);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getContext());
-        builder.setTitle(btn.getText().toString());
+        builder.setTitle(title);
         builder.setView(viewOneParam);
         builder.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
             @Override
