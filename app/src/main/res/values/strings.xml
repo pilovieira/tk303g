@@ -7,6 +7,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="operation_commands">Operation Commands</string>
+    <string name="alarm_commands">Alarm Commands</string>
     <string name="advanced_configs">Advanced Configs</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
     <string name="fragment_info_info_title">Info</string>
@@ -121,4 +122,9 @@
     <string name="gprs_sms_mode">GPRS / SMS Mode</string>
     <string name="change_to_gprs">Change to GPRS</string>
     <string name="change_to_sms">Change to SMS</string>
+    <string name="auto_track">Auto Track</string>
+    <string name="activate_auto_track">Activate Auto Track</string>
+    <string name="cancel_auto_track">Cancel Auto Track</string>
+    <string name="interval_minutes">Interval in minutes (3 digits)</string>
+    <string name="times_3_digits">Times (3 digits, *** infinity)</string>
 </resources>

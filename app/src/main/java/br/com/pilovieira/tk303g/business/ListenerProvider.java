@@ -50,6 +50,10 @@ public class ListenerProvider {
     }
 
     public static void openDialogTwoParam(final Fragment fragment, final Button btn, final int titleParam1, final int titleParam2, final CommandTwoParam commandParam) {
+        openDialogTwoParam(fragment, btn.getText().toString(), titleParam1, titleParam2, commandParam);
+    }
+
+    public static void openDialogTwoParam(final Fragment fragment, String title, final int titleParam1, final int titleParam2, final CommandTwoParam commandParam) {
         final View viewOneParam = fragment.getLayoutInflater(null).inflate(R.layout.two_param, null);
         ((TextView) viewOneParam.findViewById(R.id.title_param1)).setText(titleParam1);
         ((TextView) viewOneParam.findViewById(R.id.title_param2)).setText(titleParam2);
@@ -58,7 +62,7 @@ public class ListenerProvider {
         final TextView textParam2 = (TextView) viewOneParam.findViewById(R.id.text_param2);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getContext());
-        builder.setTitle(btn.getText().toString());
+        builder.setTitle(title);
         builder.setView(viewOneParam);
         builder.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
             @Override
@@ -70,7 +74,7 @@ public class ListenerProvider {
         builder.show();
     }
 
-    public static void openDialogThreeParam(final Fragment fragment, final Button btn, final int titleParam1, final int titleParam2, final int titleParam3, final CommandThreeParam commandParam) {
+    public static void openDialogThreeParam(final Fragment fragment, String title, final int titleParam1, final int titleParam2, final int titleParam3, final CommandThreeParam commandParam) {
         final View viewOneParam = fragment.getLayoutInflater(null).inflate(R.layout.three_param, null);
         ((TextView) viewOneParam.findViewById(R.id.title_param1)).setText(titleParam1);
         ((TextView) viewOneParam.findViewById(R.id.title_param2)).setText(titleParam2);
@@ -81,7 +85,7 @@ public class ListenerProvider {
         final TextView textParam3 = (TextView) viewOneParam.findViewById(R.id.text_param3);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(fragment.getContext());
-        builder.setTitle(btn.getText().toString());
+        builder.setTitle(title);
         builder.setView(viewOneParam);
         builder.setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
             @Override

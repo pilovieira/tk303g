@@ -11,6 +11,10 @@
             android:icon="@drawable/ic_place_black_24dp"
             android:title="@string/operation_commands" />
         <item
+            android:id="@+id/nav_alarms"
+            android:icon="@drawable/ic_alarm_black_24dp"
+            android:title="@string/alarm_commands" />
+        <item
             android:id="@+id/nav_configs"
             android:icon="@drawable/ic_settings_applications_black_24px"
             android:title="@string/config_commands" />

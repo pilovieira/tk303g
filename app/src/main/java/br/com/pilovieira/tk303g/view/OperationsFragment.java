@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
+import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
 import butterknife.ButterKnife;
@@ -74,6 +75,21 @@ public class OperationsFragment extends Fragment {
     @OnClick(R.id.btnCheckStatus)
     public void checkStatusAction() {
         emitter.emit(getString(R.string.check_status), commands.check());
+    }
+
+    @OnClick(R.id.btnActivateAutoTrack)
+    public void activateAutoTrackAction() {
+        ListenerProvider.openDialogTwoParam(this, getString(R.string.activate_auto_track), R.string.interval_minutes, R.string.times_3_digits, new ListenerProvider.CommandTwoParam() {
+            @Override
+            public void apply(String intervalMinutes, String times) {
+                emitter.emit(getString(R.string.activate_auto_track), commands.activateAutoTrack(intervalMinutes, times));
+            }
+        });
+    }
+
+    @OnClick(R.id.btnCancelAutoTrack)
+    public void cancelAutoTrackAction() {
+        emitter.emit(getString(R.string.cancel_auto_track), commands.cancelAutoTrack());
     }
 
 }

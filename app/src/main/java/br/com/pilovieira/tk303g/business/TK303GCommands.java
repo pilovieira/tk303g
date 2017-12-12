@@ -6,11 +6,9 @@ import br.com.pilovieira.tk303g.persist.Prefs;
 
 public class TK303GCommands {
 
-    private Context context;
     private Prefs prefs;
 
     public TK303GCommands(Context context) {
-        this.context = context;
         this.prefs = new Prefs(context);
     }
 
@@ -142,4 +140,11 @@ public class TK303GCommands {
         return go("nospeed#");
     }
 
+    public String activateAutoTrack(String intervalMinutes, String times) {
+        return go(String.format("fix%sm%sn#", intervalMinutes, times));
+    }
+
+    public String cancelAutoTrack() {
+        return go("nofix#");
+    }
 }

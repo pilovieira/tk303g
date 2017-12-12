@@ -75,6 +75,39 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin">
 
                 <TextView
+                    android:text="@string/auto_track"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+                <Button
+                    android:id="@+id/btnActivateAutoTrack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/activate_auto_track"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+
+                <Button
+                    android:id="@+id/btnCancelAutoTrack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cancel_auto_track"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                <TextView
                     android:text="@string/tracker_mode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
