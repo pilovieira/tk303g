@@ -6,5 +6,6 @@
 
     <color name="colorCommand">#dadada</color>
     <color name="colorLocation">#b6dae6</color>
+    <color name="colorAlarm">#e9a7a0</color>
     <color name="colorInfo">#fcecb7</color>
 </resources>

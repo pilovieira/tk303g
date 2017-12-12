@@ -16,8 +16,8 @@ public class ServerLogManager {
         this.context = context;
     }
 
-	public void log(String title, String message) {
-        ServerLog log = new ServerLog(title, message);
+	public void log(LogType logType, String message) {
+        ServerLog log = new ServerLog(logType, message);
         DaoManager.persist(context, log);
 	}
 

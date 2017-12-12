@@ -19,9 +19,9 @@ public class ServerLog implements Comparable<ServerLog> {
 
 	public ServerLog(){}
 
-	public ServerLog(String title, String message) {
+	public ServerLog(LogType logType, String message) {
 		this.date = new Date();
-        this.title = title;
+		setLogType(logType);
         this.message = message;
 	}
 
@@ -41,13 +41,13 @@ public class ServerLog implements Comparable<ServerLog> {
         this.date = date;
     }
 
-    public String getTitle() {
-        return title;
-    }
+	public LogType getLogType() {
+		return LogType.get(title);
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setLogType(LogType logType) {
+		this.title = logType.name();
+	}
 
     public String getMessage() {
         return message;

@@ -70,7 +70,7 @@
     <string name="lat">Lat:</string>
     <string name="lng">Lng:</string>
     <string name="speed">Speed:</string>
-    <string name="saved">Saved:</string>
+    <string name="time">Time:</string>
     <string name="speed_kmh">"%1$s Km/h"</string>
     <string name="title_activity_location_history">Location History</string>
     <string name="location_history">Location History</string>
@@ -130,4 +130,10 @@
     <string name="power">Power:</string>
     <string name="door">Door:</string>
     <string name="acc">Acc:</string>
+    <string name="alarm">Alarm</string>
+    <string name="acc_on_alarm_title">ACC On Alarm</string>
+    <string name="acc_off_alarm_title">ACC Off Alarm</string>
+    <string name="move_alarm_title">Move Alarm</string>
+    <string name="speed_alarm_title">Speed Alarm</string>
+    <string name="last_location_title">Last Location</string>
 </resources>

@@ -5,6 +5,7 @@ import android.telephony.SmsManager;
 import android.widget.Toast;
 
 import br.com.pilovieira.tk303g.R;
+import br.com.pilovieira.tk303g.log.LogType;
 import br.com.pilovieira.tk303g.log.ServerLogManager;
 import br.com.pilovieira.tk303g.persist.Prefs;
 
@@ -39,7 +40,7 @@ public class SMSEmitter {
 
     private void log(String commandName, String command) {
         String log = context.getString(R.string.message_command_confirmation, commandName, command.replace(prefs.getPassword(), "******"));
-        new ServerLogManager(context).log(context.getString(R.string.command), log);
+        new ServerLogManager(context).log(LogType.COMMAND, log);
 
         log = context.getString(R.string.message_confirmation, commandName);
         Toast.makeText(context, log, Toast.LENGTH_SHORT).show();
