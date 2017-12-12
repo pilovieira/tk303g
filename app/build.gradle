@@ -1,13 +1,5 @@
 apply plugin: 'com.android.application'
 
-String signPropsName = "signing.properties"
-boolean sign = (project.hasProperty(signPropsName) && new File(project.property(signPropsName)).exists())
-Properties signProps = new Properties()
-
-if (sign) {
-    signProps.load(new FileInputStream(file(project.property(signPropsName))))
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -21,27 +13,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
-        javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
-    }
-
-    signingConfigs {
-        if (sign) {
-            signConfig {
-                keyAlias signProps['tk303g.keyAlias']
-                keyPassword signProps['tk303g.keyPassword']
-                storeFile file(signProps['tk303g.storeFile'])
-                storePassword signProps['tk303g.storePassword']
-            }
-        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if (sign) {
-                signingConfig signingConfigs.signConfig
-            }
         }
         debug {
             applicationIdSuffix ".developer"
