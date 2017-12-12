@@ -79,6 +79,9 @@ public class LogListAdapter extends BaseAdapter {
         tag.lng.setText(digester.getLng());
         tag.speed.setText(context.getString(R.string.speed_kmh, digester.getSpeed()));
         tag.saved.setText(digester.getTime());
+        tag.pwr.setText(digester.getPower());
+        tag.door.setText(digester.getDoor());
+        tag.acc.setText(digester.getAcc());
 
         ListenerProvider.openGeo(view, tag.lat.getText().toString(), tag.lng.getText().toString());
     }
@@ -94,6 +97,9 @@ public class LogListAdapter extends BaseAdapter {
             tag.lng = (TextView) view.findViewById(R.id.text_lng);
             tag.speed = (TextView) view.findViewById(R.id.text_speed);
             tag.saved = (TextView) view.findViewById(R.id.text_saved);
+            tag.pwr = (TextView) view.findViewById(R.id.textPower);
+            tag.door = (TextView) view.findViewById(R.id.textDoor);
+            tag.acc = (TextView) view.findViewById(R.id.textAcc);
             view.setTag(tag);
             return view;
         }
@@ -131,6 +137,9 @@ public class LogListAdapter extends BaseAdapter {
         TextView lng;
         TextView speed;
         TextView saved;
+        TextView pwr;
+        TextView door;
+        TextView acc;
     }
 
     private class InfoTag {

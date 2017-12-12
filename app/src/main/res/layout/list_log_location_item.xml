@@ -8,114 +8,149 @@
     android:paddingTop="@dimen/nav_header_vertical_spacing"
     android:paddingBottom="@dimen/nav_header_vertical_spacing">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/creation_date"
-        android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+        <TextView
+            android:id="@+id/creation_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="12/12/17 02:32:38"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/latitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lat"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/text_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="-23.387632" />
+
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lng"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/text_lng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="-23.387632" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="@string/lat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/latitude"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text_lat"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
+            android:id="@+id/speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:text="@string/speed"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-            <TextView
-                android:text="@string/lng"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/longitude"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text_lng"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:text="@string/speed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/speed"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text_speed"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
+            android:id="@+id/text_speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="132.66 Km/h" />
 
-            <TextView
-                android:text="@string/saved"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/capture_date"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        <TextView
+            android:id="@+id/capture_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/saved"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text_saved"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/activity_horizontal_margin" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/text_saved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="17/12/12 02:31" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/power"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/textPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ON"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/door"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/textDoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OFF"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/acc"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/textAcc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OFF"
+            android:gravity="center" />
     </LinearLayout>
 
 </LinearLayout>
