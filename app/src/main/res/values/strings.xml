@@ -125,6 +125,6 @@
     <string name="auto_track">Auto Track</string>
     <string name="activate_auto_track">Activate Auto Track</string>
     <string name="cancel_auto_track">Cancel Auto Track</string>
-    <string name="interval_minutes">Interval in minutes (3 digits)</string>
+    <string name="interval_minutes">Interval (ex: 020s or 005m)</string>
     <string name="times_3_digits">Times (3 digits, *** infinity)</string>
 </resources>

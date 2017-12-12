@@ -140,8 +140,8 @@ public class TK303GCommands {
         return go("nospeed#");
     }
 
-    public String activateAutoTrack(String intervalMinutes, String times) {
-        return go(String.format("fix%sm%sn#", intervalMinutes, times));
+    public String activateAutoTrack(String interval, String times) {
+        return go(String.format("fix%s%sn#", interval, times));
     }
 
     public String cancelAutoTrack() {
