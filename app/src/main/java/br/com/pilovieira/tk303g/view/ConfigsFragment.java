@@ -28,6 +28,9 @@ public class ConfigsFragment extends Fragment {
     @Bind(R.id.btnAuthorize) Button btnAuthorize;
     @Bind(R.id.btnRemoveAuth) Button btnRemoveAuth;
     @Bind(R.id.btnTimeZone) Button btnTimeZone;
+    @Bind(R.id.btnSetApnName) Button btnSetApnName;
+    @Bind(R.id.btnSetApnUserPass) Button btnSetApnUserPass;
+    @Bind(R.id.btnSetIpAndPort) Button btnSetIpAndPort;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,6 +72,36 @@ public class ConfigsFragment extends Fragment {
             @Override
             public void apply(String number) {
                 emitter.emit(btnRemoveAuth.getText().toString(), commands.deleteNumber(number));
+            }
+        });
+    }
+
+    @OnClick(R.id.btnSetApnName)
+    public void btnSetApnNameClicked() {
+        ListenerProvider.openDialogOneParam(this, btnSetApnName, R.string.apn_name, new ListenerProvider.CommandOneParam() {
+            @Override
+            public void apply(String name) {
+                emitter.emit(btnSetApnName.getText().toString(), commands.setAPNName(name));
+            }
+        });
+    }
+
+    @OnClick(R.id.btnSetApnUserPass)
+    public void btnSetApnUserPassClicked() {
+        ListenerProvider.openDialogTwoParam(this, btnSetApnUserPass, R.string.user, R.string.pass, new ListenerProvider.CommandTwoParam() {
+            @Override
+            public void apply(String user, String pass) {
+                emitter.emit(btnSetApnUserPass.getText().toString(), commands.setAPNUserPass(user, pass));
+            }
+        });
+    }
+
+    @OnClick(R.id.btnSetIpAndPort)
+    public void btnSetIpAndPortClicked() {
+        ListenerProvider.openDialogTwoParam(this, btnSetIpAndPort, R.string.ip, R.string.port, new ListenerProvider.CommandTwoParam() {
+            @Override
+            public void apply(String ip, String port) {
+                emitter.emit(btnSetIpAndPort.getText().toString(), commands.setIpAndPort(ip, port));
             }
         });
     }

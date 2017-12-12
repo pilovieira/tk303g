@@ -70,4 +70,15 @@ public class TK303GCommands {
         return go(String.format("time zone# %s", timezone));
     }
 
+    public String setAPNName(String apn) {
+        return go(String.format("apn# %s", apn));
+    }
+
+    public String setAPNUserPass(String user, String pass) {
+        return go(String.format("up# %s %s", user, pass));
+    }
+
+    public String setIpAndPort(String ip, String port) {
+        return go(String.format("adminip# %s %s", ip, port));
+    }
 }

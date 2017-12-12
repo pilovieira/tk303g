@@ -89,5 +89,11 @@
     <string name="are_you_sure">Are you sure ?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-
+    <string name="apn_config_commands">APN Config Commands</string>
+    <string name="set_apn">Set APN</string>
+    <string name="set_apn_user_pass">Set APN User/Pass</string>
+    <string name="apn_name">APN Name</string>
+    <string name="user">APN User</string>
+    <string name="pass">APN Pass</string>
+    <string name="set_ip_and_port">Set IP and Port</string>
 </resources>
