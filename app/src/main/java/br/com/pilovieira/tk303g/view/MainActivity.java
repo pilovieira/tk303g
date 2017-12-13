@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 replaceFragment(new OperationsFragment());
                 break;
             case R.id.nav_alarms:
-                replaceFragment(new AlarmOperationsFragment());
+                replaceFragment(new AlarmsFragment());
                 break;
             case R.id.nav_configs:
                 replaceFragment(new ConfigsFragment());
