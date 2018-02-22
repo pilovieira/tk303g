@@ -126,7 +126,4 @@
     <string name="last_location_title">Last Location</string>
     <string name="activate">Activate</string>
     <string name="tutorial">Tutorial</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

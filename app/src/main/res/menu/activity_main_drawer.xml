@@ -22,6 +22,10 @@
             android:id="@+id/nav_parameters"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/config_parameters" />
+        <item
+            android:id="@+id/nav_tutorial"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/tutorial" />
     </group>
 
     <item

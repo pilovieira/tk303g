@@ -135,6 +135,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_parameters:
                 replaceFragment(new ParametersFragment());
                 break;
+            case R.id.nav_tutorial:
+                replaceFragment(new TutorialFragment());
+                break;
             case R.id.nav_location_history:
                 startActivity(new Intent(this, LocationHistoryActivity.class));
                 return;

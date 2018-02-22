@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="howto1_title">How to configure parameters</string>
+    <string name="howto1">\n
+        - Access the (Config Parameters) screen.\n
+        - Type your tracker phone number in (Tracker Number) field.\n
+        - Type your password in (Password) field.\n
+        - Access the (Config Commands) screen.\n
+        - Send (Begin) command.\n
+        - Wait for tracker callback.\n
+        - Send (Authorize Number) command and authorize the number configured previously (type the same number).\n
+        - Wait for tracker callback.\n
+    </string>
+
+    <string name="howto2_title">How to configure APN</string>
+    <string name="howto2">\n
+        - Access the (Config Commands) screen.\n
+        - Send (Set APN) command (example: apn.oper.com.br).\n
+        - Wait for tracker callback.\n
+        - Send (Set APN User/Pass) command.\n
+        - Wait for tracker callback.\n
+        - Send (Set Server IP and Port) command.\n
+        - Wait for tracker callback.\n
+    </string>
+
+    <string name="howto3_title">How to configure continuous tracker</string>
+    <string name="howto3">\n
+        - Access the (Operation Commands) screen.\n
+        - Send (Change to GPRS) command.\n
+        - Send (Activate Auto Track) command.\n
+    </string>
+
+    <string name="about">\n
+        This app is just a command sender.\n
+        I am not responsible for the use of it.\n
+    </string>
+</resources>
