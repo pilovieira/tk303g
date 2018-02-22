@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,8 +24,12 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.log.LogType;
 import br.com.pilovieira.tk303g.log.ServerLog;
 import br.com.pilovieira.tk303g.log.ServerLogManager;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class LocationHistoryActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    @BindView(R.id.adView) AdView mAdView;
 
     private GoogleMap mMap;
     private List<Marker> markers = new ArrayList<>();
@@ -33,8 +39,12 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_history);
+        ButterKnife.bind(this);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mAdView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
