@@ -24,6 +24,7 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.log.LogType;
 import br.com.pilovieira.tk303g.log.ServerLog;
 import br.com.pilovieira.tk303g.log.ServerLogManager;
+import br.com.pilovieira.tk303g.utils.LanguageSetter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -38,6 +39,7 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageSetter.refreshLanguage(this);
         setContentView(R.layout.activity_location_history);
         ButterKnife.bind(this);
 

@@ -12,6 +12,7 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
+import br.com.pilovieira.tk303g.utils.LanguageSetter;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -23,6 +24,7 @@ public class AlarmsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageSetter.refreshLanguage(getContext());
         commands = new TK303GCommands(getContext());
         emitter = new SMSEmitter(getContext());
     }

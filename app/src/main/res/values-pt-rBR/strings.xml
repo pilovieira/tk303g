@@ -92,4 +92,8 @@
     <string name="tutorial">Tutorial</string>
     <string name="move">Movimento</string>
     <string name="log_info">Histórico de Mensagens</string>
+    <string name="app_language">Idioma do App</string>
+    <string name="system_language">Idioma do Sistema</string>
+    <string name="english">Inglês Americano</string>
+    <string name="brazilian_portuguese">Português Brasileiro</string>
 </resources>

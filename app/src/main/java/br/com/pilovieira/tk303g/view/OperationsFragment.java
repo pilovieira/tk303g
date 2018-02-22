@@ -13,6 +13,7 @@ import br.com.pilovieira.tk303g.business.CommonOperations;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
+import br.com.pilovieira.tk303g.utils.LanguageSetter;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -25,6 +26,7 @@ public class OperationsFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageSetter.refreshLanguage(getContext());
         commands = new TK303GCommands(getContext());
         common = new CommonOperations(getContext());
         emitter = new SMSEmitter(getContext());

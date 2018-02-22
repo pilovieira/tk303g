@@ -24,6 +24,7 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
 import br.com.pilovieira.tk303g.location.LocationHistoryActivity;
 import br.com.pilovieira.tk303g.log.InfoFragment;
+import br.com.pilovieira.tk303g.utils.LanguageSetter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageSetter.refreshLanguage(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 

@@ -42,6 +42,16 @@ public class Prefs {
 		editor.apply();
 	}
 
+	public int getLanguage() {
+		return getSharedPreferences().getInt(context.getString(R.string.PREF_LANGUAGE), 0);
+	}
+
+	public void setLanguage(int language) {
+		SharedPreferences.Editor editor = getSharedPreferences().edit();
+		editor.putInt(context.getString(R.string.PREF_LANGUAGE), language);
+		editor.apply();
+	}
+
 	private SharedPreferences getSharedPreferences() {
 		return PreferenceManager.getDefaultSharedPreferences(this.context);
 	}

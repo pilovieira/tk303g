@@ -3,5 +3,6 @@
 
     <string name="PREF_TRACKER_NUMBER" translatable="false">trackerNumber</string>
     <string name="PREF_PASSWORD" translatable="false">password</string>
+    <string name="PREF_LANGUAGE" translatable="false">language</string>
 
 </resources>

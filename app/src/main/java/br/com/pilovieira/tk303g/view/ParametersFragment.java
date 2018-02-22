@@ -8,10 +8,13 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.persist.Prefs;
+import br.com.pilovieira.tk303g.utils.LanguageSetter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -21,10 +24,12 @@ public class ParametersFragment extends Fragment {
 
     @BindView(R.id.textTrackerNumber) EditText textTrackerNumber;
     @BindView(R.id.textPassword) EditText textPassword;
+    @BindView(R.id.spinnerLanguage) Spinner spinnerLanguage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LanguageSetter.refreshLanguage(getContext());
         prefs = new Prefs(getContext());
     }
 
@@ -35,6 +40,7 @@ public class ParametersFragment extends Fragment {
 
         setTextTrackerNumber();
         setTextPassword();
+        configureSpinnerLanguage();
 
         return view;
     }
@@ -58,6 +64,19 @@ public class ParametersFragment extends Fragment {
                 prefs.setPassword(((EditText)view).getText().toString());
                 return false;
             }
+        });
+    }
+
+    private void configureSpinnerLanguage() {
+        spinnerLanguage.setSelection(prefs.getLanguage());
+        spinnerLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                prefs.setLanguage(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
     }
 

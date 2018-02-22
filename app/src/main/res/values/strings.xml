@@ -95,4 +95,8 @@
     <string name="last_location_title">Last Location</string>
     <string name="activate">Activate</string>
     <string name="tutorial">Tutorial</string>
+    <string name="app_language">App Language</string>
+    <string name="system_language">System Language</string>
+    <string name="english">English</string>
+    <string name="brazilian_portuguese">Brazilian Portuguese</string>
 </resources>
