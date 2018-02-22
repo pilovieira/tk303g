@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="howto1_title">Como configurar os parâmetros</string>
+    <string name="howto1">\n
+        - Acesse a tela (Parâmetros de Configuração).\n
+        - Digite o número de telefone de seu rastreador no campo (Número do rastreador).\n
+        - Digite a senha do seu rastreador no campo (Senha).\n
+        - Acesse a tela (Comandos de Configuração).\n
+        - Envie o comando (Begin).\n
+        - Aguarde resposta do rastreador.\n
+        - Envie o comando (Autorizar Número) e autorize o número que foi digitado previamente.\n
+        - Aguarde resposta do rastreador.\n
+    </string>
+
+    <string name="howto2_title">Como configurar APN</string>
+    <string name="howto2">\n
+        - Acesse a tela (Comandos de Configuração).\n
+        - Envie o comando (Set APN) (exemplo: apn.oper.com.br).\n
+        - Aguarde resposta do rastreador.\n
+        - Envie o comando (Set APN Usuário/Senha).\n
+        - Aguarde resposta do rastreador.\n
+        - Envie o comando (Set IP e Porta).\n
+        - Aguarde resposta do rastreador.\n
+    </string>
+
+    <string name="howto3_title">Como configurar rastreamento contínuo</string>
+    <string name="howto3">\n
+        - Acesse a tela (Comandos de Operação).\n
+        - Envie o comando (Alterar para GPRS).\n
+        - Envie o comando (Ativar Auto Rastreamento).\n
+    </string>
+
+    <string name="about">\n
+        Este app é apenas um enviador de comandos.\n
+        Não me responsabilizo por seu uso.\n
+    </string>
+</resources>
