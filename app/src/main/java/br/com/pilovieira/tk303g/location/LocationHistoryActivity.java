@@ -61,7 +61,7 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
         for (Marker marker : markers)
             polylineOptions.add(marker.getPosition());
 
-        polylineOptions.color(R.color.wallet_holo_blue_light);
+        polylineOptions.color(R.color.colorPolyLine);
         polyLine = mMap.addPolyline(polylineOptions);
     }
 

@@ -24,16 +24,16 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
 import br.com.pilovieira.tk303g.location.LocationHistoryActivity;
 import br.com.pilovieira.tk303g.log.InfoFragment;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Bind(R.id.toolbar) Toolbar toolbar;
-    @Bind(R.id.drawer_layout) DrawerLayout drawer;
-    @Bind(R.id.nav_view) NavigationView navigationView;
-    @Bind(R.id.adView) AdView mAdView;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.drawer_layout) DrawerLayout drawer;
+    @BindView(R.id.nav_view) NavigationView navigationView;
+    @BindView(R.id.adView) AdView mAdView;
 
     private CommonOperations common;
 

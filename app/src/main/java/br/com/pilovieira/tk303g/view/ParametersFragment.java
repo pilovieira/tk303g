@@ -11,17 +11,16 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import br.com.pilovieira.tk303g.R;
-import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.persist.Prefs;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ParametersFragment extends Fragment {
 
     private Prefs prefs;
 
-    @Bind(R.id.textTrackerNumber) EditText textTrackerNumber;
-    @Bind(R.id.textPassword) EditText textPassword;
+    @BindView(R.id.textTrackerNumber) EditText textTrackerNumber;
+    @BindView(R.id.textPassword) EditText textPassword;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

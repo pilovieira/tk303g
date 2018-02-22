@@ -7,4 +7,6 @@
     <color name="colorCommand">#dadada</color>
     <color name="colorLocation">#b6dae6</color>
     <color name="colorInfo">#fcecb7</color>
+
+    <color name="colorPolyLine">#2387de</color>
 </resources>

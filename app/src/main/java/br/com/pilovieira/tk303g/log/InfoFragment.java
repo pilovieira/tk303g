@@ -12,15 +12,15 @@ import android.widget.ListView;
 import java.util.List;
 
 import br.com.pilovieira.tk303g.R;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class InfoFragment extends Fragment {
 
     private View view;
-    @Bind(R.id.listLog) ListView logList;
-    @Bind(R.id.btnLogClear) Button btnClear;
+    @BindView(R.id.listLog) ListView logList;
+    @BindView(R.id.btnLogClear) Button btnClear;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

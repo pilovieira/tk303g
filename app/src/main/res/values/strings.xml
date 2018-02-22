@@ -130,4 +130,8 @@
     <string name="power">Power:</string>
     <string name="door">Door:</string>
     <string name="acc">Acc:</string>
+    <string name="tutorial">Tutorial</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

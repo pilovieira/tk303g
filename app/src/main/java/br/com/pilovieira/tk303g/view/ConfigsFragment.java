@@ -15,7 +15,7 @@ import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -24,13 +24,13 @@ public class ConfigsFragment extends Fragment {
     private TK303GCommands commands;
     private SMSEmitter emitter;
 
-    @Bind(R.id.btnChangePassword) Button btnChangePassword;
-    @Bind(R.id.btnAuthorize) Button btnAuthorize;
-    @Bind(R.id.btnRemoveAuth) Button btnRemoveAuth;
-    @Bind(R.id.btnTimeZone) Button btnTimeZone;
-    @Bind(R.id.btnSetApnName) Button btnSetApnName;
-    @Bind(R.id.btnSetApnUserPass) Button btnSetApnUserPass;
-    @Bind(R.id.btnSetIpAndPort) Button btnSetIpAndPort;
+    @BindView(R.id.btnChangePassword) Button btnChangePassword;
+    @BindView(R.id.btnAuthorize) Button btnAuthorize;
+    @BindView(R.id.btnRemoveAuth) Button btnRemoveAuth;
+    @BindView(R.id.btnTimeZone) Button btnTimeZone;
+    @BindView(R.id.btnSetApnName) Button btnSetApnName;
+    @BindView(R.id.btnSetApnUserPass) Button btnSetApnUserPass;
+    @BindView(R.id.btnSetIpAndPort) Button btnSetIpAndPort;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
