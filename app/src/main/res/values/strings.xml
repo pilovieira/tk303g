@@ -99,4 +99,5 @@
     <string name="system_language">System Language</string>
     <string name="english">English</string>
     <string name="brazilian_portuguese">Brazilian Portuguese</string>
+    <string name="please_restart_app">Please restart app to change the language!</string>
 </resources>

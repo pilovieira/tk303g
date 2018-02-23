@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.persist.Prefs;
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 public class ParametersFragment extends Fragment {
 
     private Prefs prefs;
+    private boolean loadFragment;
 
     @BindView(R.id.textTrackerNumber) EditText textTrackerNumber;
     @BindView(R.id.textPassword) EditText textPassword;
@@ -41,6 +43,7 @@ public class ParametersFragment extends Fragment {
         setTextTrackerNumber();
         setTextPassword();
         configureSpinnerLanguage();
+        loadFragment = true;
 
         return view;
     }
@@ -73,6 +76,11 @@ public class ParametersFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 prefs.setLanguage(position);
+
+                if (loadFragment)
+                    loadFragment = false;
+                else
+                    Toast.makeText(view.getContext(), R.string.please_restart_app, Toast.LENGTH_LONG).show();
             }
 
             @Override

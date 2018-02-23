@@ -18,14 +18,15 @@ public class LanguageSetter {
 
         int language = new Prefs(context).getLanguage();
         switch (language) {
+            case 0:
+                configuration.locale = null;
+                break;
             case 1:
                 configuration.locale = Locale.ENGLISH;
                 break;
             case 2:
                 configuration.locale = BRAZIL;
                 break;
-            default:
-                return;
         }
 
         resources.updateConfiguration(configuration, null);
