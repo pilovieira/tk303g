@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @OnClick(R.id.btnHotGetLocation)
     public void locationAction(View view) {
-        common.locationAction(view);
+        common.locationAction();
     }
 
     @OnClick(R.id.btnHotLock)

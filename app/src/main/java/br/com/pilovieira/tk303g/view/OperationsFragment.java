@@ -41,7 +41,7 @@ public class OperationsFragment extends Fragment {
 
     @OnClick(R.id.btnGetLocation)
     public void locationAction(View view) {
-        common.locationAction(view);
+        common.locationAction();
     }
 
     @OnClick(R.id.btnLockVehicle)

@@ -24,7 +24,7 @@ public class CommonOperations {
         this.commands = new TK303GCommands(context);
     }
 
-    public void locationAction(View view) {
+    public void locationAction() {
         Prefs prefs = new Prefs(context);
         String number = prefs.getTrackerNumber();
         if (number.isEmpty()) {
@@ -32,7 +32,7 @@ public class CommonOperations {
             return;
         }
 
-        Intent intent = new Intent(Intent.ACTION_CALL);
+        Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(commands.getLocation()));
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
