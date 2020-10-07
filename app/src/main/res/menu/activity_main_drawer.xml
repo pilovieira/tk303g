@@ -28,9 +28,9 @@
             android:title="@string/tutorial" />
     </group>
 
-    <item
-        android:id="@+id/nav_location_history"
-        android:icon="@drawable/ic_history_black_24dp"
-        android:title="@string/location_history" />
+<!--    <item-->
+<!--        android:id="@+id/nav_location_history"-->
+<!--        android:icon="@drawable/ic_history_black_24dp"-->
+<!--        android:title="@string/location_history" />-->
 
 </menu>

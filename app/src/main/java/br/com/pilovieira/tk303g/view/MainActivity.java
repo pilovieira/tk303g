@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         configureDrawer();
         configureNavigationMenu();
-        requestPermissions();
+        //requestPermissions();
         mAdView.loadAd(new AdRequest.Builder().build());
     }
 
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void requestPermissions() {
         String[] permissions = new String[] {
-                android.Manifest.permission.SEND_SMS,
-                Manifest.permission.CALL_PHONE,
+//                android.Manifest.permission.SEND_SMS,
+//                Manifest.permission.CALL_PHONE,
                 Manifest.permission.ACCESS_FINE_LOCATION
         };
         if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED)
@@ -139,9 +139,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_tutorial:
                 replaceFragment(new TutorialFragment());
-                break;
-            case R.id.nav_location_history:
-                startActivity(new Intent(this, LocationHistoryActivity.class));
+//                break;
+//            case R.id.nav_location_history:
+//                startActivity(new Intent(this, LocationHistoryActivity.class));
                 return;
         }
 
