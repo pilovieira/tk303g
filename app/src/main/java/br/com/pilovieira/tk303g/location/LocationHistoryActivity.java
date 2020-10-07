@@ -1,7 +1,7 @@
 package br.com.pilovieira.tk303g.location;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;

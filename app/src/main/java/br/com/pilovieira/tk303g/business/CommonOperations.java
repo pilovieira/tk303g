@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
+
+import androidx.core.app.ActivityCompat;
 import android.view.View;
 import android.widget.Toast;
 
