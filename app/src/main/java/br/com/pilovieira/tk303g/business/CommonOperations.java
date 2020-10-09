@@ -35,10 +35,10 @@ public class CommonOperations {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setData(Uri.parse(commands.getLocation()));
-        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            Toast.makeText(context, R.string.please_add_call_permission, Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+//            Toast.makeText(context, R.string.please_add_call_permission, Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         context.startActivity(intent);
     }
