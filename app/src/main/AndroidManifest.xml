@@ -41,14 +41,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3459908964898326~4884873711"/>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".location.LocationHistoryActivity"
-            android:label="@string/title_activity_location_history" />
     </application>
 
 </manifest>
