@@ -1,8 +1,9 @@
 package br.com.pilovieira.tk303g.location;
 
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 import android.view.View;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -25,12 +26,8 @@ import br.com.pilovieira.tk303g.log.LogType;
 import br.com.pilovieira.tk303g.log.ServerLog;
 import br.com.pilovieira.tk303g.log.ServerLogManager;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class LocationHistoryActivity extends FragmentActivity implements OnMapReadyCallback {
-
-    @BindView(R.id.adView) AdView mAdView;
 
     private GoogleMap mMap;
     private List<Marker> markers = new ArrayList<>();
@@ -41,11 +38,11 @@ public class LocationHistoryActivity extends FragmentActivity implements OnMapRe
         super.onCreate(savedInstanceState);
         LanguageSetter.refreshLanguage(this);
         setContentView(R.layout.activity_location_history);
-        ButterKnife.bind(this);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        AdView mAdView = findViewById(R.id.adView);
         mAdView.loadAd(new AdRequest.Builder().build());
     }
 

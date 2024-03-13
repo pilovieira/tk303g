@@ -1,40 +1,32 @@
 package br.com.pilovieira.tk303g.view;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import com.google.android.material.navigation.NavigationView;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.material.navigation.NavigationView;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
-import br.com.pilovieira.tk303g.location.LocationHistoryActivity;
 import br.com.pilovieira.tk303g.log.InfoFragment;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer_layout) DrawerLayout drawer;
-    @BindView(R.id.nav_view) NavigationView navigationView;
-    @BindView(R.id.adView) AdView mAdView;
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private NavigationView navigationView;
+    private AdView mAdView;
 
     private CommonOperations common;
 
@@ -43,7 +35,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         LanguageSetter.refreshLanguage(this);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        toolbar = findViewById(R.id.toolbar);
+        drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        mAdView = findViewById(R.id.adView);
+
+        findViewById(R.id.btnHotGetLocation).setOnClickListener(v -> locationAction(v));
+        findViewById(R.id.btnHotLock).setOnClickListener(v -> lockAction());
+        findViewById(R.id.btnHotUnlock).setOnClickListener(v -> unlockAction());
 
         common = new CommonOperations(getBaseContext());
 
@@ -69,15 +69,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         onNavigationItemSelected(item);
     }
 
-    private void requestPermissions() {
-        String[] permissions = new String[] {
-//                android.Manifest.permission.SEND_SMS,
-//                Manifest.permission.CALL_PHONE,
-                Manifest.permission.ACCESS_FINE_LOCATION
-        };
-        if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(this, permissions, 1000);
-    }
+//    private void requestPermissions() {
+//        String[] permissions = new String[] {
+////                android.Manifest.permission.SEND_SMS,
+////                Manifest.permission.CALL_PHONE,
+//                Manifest.permission.ACCESS_FINE_LOCATION
+//        };
+//        if (ContextCompat.checkSelfPermission(this, permissions[0]) != PackageManager.PERMISSION_GRANTED)
+//            ActivityCompat.requestPermissions(this, permissions, 1000);
+//    }
 
     @Override
     public void onBackPressed() {
@@ -98,17 +98,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    @OnClick(R.id.btnHotGetLocation)
     public void locationAction(View view) {
         common.locationAction();
     }
 
-    @OnClick(R.id.btnHotLock)
     public void lockAction() {
         common.lockAction();
     }
 
-    @OnClick(R.id.btnHotUnlock)
     public void unlockAction() {
         common.unlockAction();
     }
@@ -121,29 +118,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void selectItem(MenuItem menuItem) {
-        switch(menuItem.getItemId()) {
-            case R.id.nav_info:
-                replaceFragment(new InfoFragment());
-                break;
-            case R.id.nav_operations:
-                replaceFragment(new OperationsFragment());
-                break;
-            case R.id.nav_alarms:
-                replaceFragment(new AlarmsFragment());
-                break;
-            case R.id.nav_configs:
-                replaceFragment(new ConfigsFragment());
-                break;
-            case R.id.nav_parameters:
-                replaceFragment(new ParametersFragment());
-                break;
-            case R.id.nav_tutorial:
-                replaceFragment(new TutorialFragment());
-//                break;
-//            case R.id.nav_location_history:
-//                startActivity(new Intent(this, LocationHistoryActivity.class));
-                return;
-        }
+        int itemId = menuItem.getItemId();
+        if (itemId == R.id.nav_info)
+            replaceFragment(new InfoFragment());
+        else if (itemId == R.id.nav_operations)
+            replaceFragment(new OperationsFragment());
+        else if (itemId == R.id.nav_alarms)
+            replaceFragment(new AlarmsFragment());
+        else if (itemId == R.id.nav_configs)
+            replaceFragment(new ConfigsFragment());
+        else if (itemId == R.id.nav_parameters)
+            replaceFragment(new ParametersFragment());
+        else if (itemId == R.id.nav_tutorial)
+            replaceFragment(new TutorialFragment());
 
         menuItem.setChecked(true);
     }

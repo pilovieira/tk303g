@@ -2,8 +2,6 @@ package br.com.pilovieira.tk303g.view;
 
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,20 +11,21 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.persist.Prefs;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class ParametersFragment extends Fragment {
 
     private Prefs prefs;
     private boolean loadFragment;
 
-    @BindView(R.id.textTrackerNumber) EditText textTrackerNumber;
-    @BindView(R.id.textPassword) EditText textPassword;
-    @BindView(R.id.spinnerLanguage) Spinner spinnerLanguage;
+    private EditText textTrackerNumber;
+    private EditText textPassword;
+    private Spinner spinnerLanguage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +37,10 @@ public class ParametersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_parameters, container, false);
-        ButterKnife.bind(this, view);
+
+        textTrackerNumber = view.findViewById(R.id.textTrackerNumber);
+        textPassword = view.findViewById(R.id.textPassword);
+        spinnerLanguage = view.findViewById(R.id.spinnerLanguage);
 
         setTextTrackerNumber();
         setTextPassword();

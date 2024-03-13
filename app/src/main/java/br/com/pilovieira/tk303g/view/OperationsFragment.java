@@ -2,11 +2,12 @@ package br.com.pilovieira.tk303g.view;
 
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
@@ -14,8 +15,6 @@ import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class OperationsFragment extends Fragment {
 
@@ -35,51 +34,53 @@ public class OperationsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_operations, container, false);
-        ButterKnife.bind(this, view);
+
+        view.findViewById(R.id.btnGetLocation).setOnClickListener(v -> locationAction(v));
+        view.findViewById(R.id.btnLockVehicle).setOnClickListener(v -> lockAction());
+        view.findViewById(R.id.btnUnlockVehicle).setOnClickListener(v -> unlockAction());
+        view.findViewById(R.id.btnMonitor).setOnClickListener(v -> monitorAction());
+        view.findViewById(R.id.btnTracker).setOnClickListener(v -> trackerAction());
+        view.findViewById(R.id.btnGprsMode).setOnClickListener(v -> gprsModeAction());
+        view.findViewById(R.id.btnSmsMode).setOnClickListener(v -> smsModeAction());
+        view.findViewById(R.id.btnCheckStatus).setOnClickListener(v -> checkStatusAction());
+        view.findViewById(R.id.btnActivateAutoTrack).setOnClickListener(v -> activateAutoTrackAction());
+        view.findViewById(R.id.btnCancelAutoTrack).setOnClickListener(v -> cancelAutoTrackAction());
+
         return view;
     }
 
-    @OnClick(R.id.btnGetLocation)
     public void locationAction(View view) {
         common.locationAction();
     }
 
-    @OnClick(R.id.btnLockVehicle)
     public void lockAction() {
         common.lockAction();
     }
 
-    @OnClick(R.id.btnUnlockVehicle)
     public void unlockAction() {
         common.unlockAction();
     }
 
-    @OnClick(R.id.btnMonitor)
     public void monitorAction() {
         emitter.emit(getString(R.string.monitor), commands.monitor());
     }
 
-    @OnClick(R.id.btnTracker)
     public void trackerAction() {
         emitter.emit(getString(R.string.tracker), commands.tracker());
     }
 
-    @OnClick(R.id.btnGprsMode)
     public void gprsModeAction() {
         emitter.emit(getString(R.string.change_to_gprs), commands.gprs());
     }
 
-    @OnClick(R.id.btnSmsMode)
     public void smsModeAction() {
         emitter.emit(getString(R.string.change_to_sms), commands.sms());
     }
 
-    @OnClick(R.id.btnCheckStatus)
     public void checkStatusAction() {
         emitter.emit(getString(R.string.check_status), commands.check());
     }
 
-    @OnClick(R.id.btnActivateAutoTrack)
     public void activateAutoTrackAction() {
         ListenerProvider.openDialogTwoParam(this, getString(R.string.activate_auto_track), R.string.interval_minutes, R.string.times_3_digits, new ListenerProvider.CommandTwoParam() {
             @Override
@@ -89,7 +90,6 @@ public class OperationsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnCancelAutoTrack)
     public void cancelAutoTrackAction() {
         emitter.emit(getString(R.string.cancel_auto_track), commands.cancelAutoTrack());
     }

@@ -3,35 +3,33 @@ package br.com.pilovieira.tk303g.view;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.ListenerProvider;
 import br.com.pilovieira.tk303g.business.TK303GCommands;
 import br.com.pilovieira.tk303g.comm.SMSEmitter;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ConfigsFragment extends Fragment {
 
     private TK303GCommands commands;
     private SMSEmitter emitter;
 
-    @BindView(R.id.btnChangePassword) Button btnChangePassword;
-    @BindView(R.id.btnAuthorize) Button btnAuthorize;
-    @BindView(R.id.btnRemoveAuth) Button btnRemoveAuth;
-    @BindView(R.id.btnTimeZone) Button btnTimeZone;
-    @BindView(R.id.btnSetApnName) Button btnSetApnName;
-    @BindView(R.id.btnSetApnUserPass) Button btnSetApnUserPass;
-    @BindView(R.id.btnSetIpAndPort) Button btnSetIpAndPort;
+    private Button btnChangePassword;
+    private Button btnAuthorize;
+    private Button btnRemoveAuth;
+    private Button btnTimeZone;
+    private Button btnSetApnName;
+    private Button btnSetApnUserPass;
+    private Button btnSetIpAndPort;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,11 +42,30 @@ public class ConfigsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_configs, container, false);
-        ButterKnife.bind(this, view);
+
+        btnChangePassword = view.findViewById(R.id.btnChangePassword);
+        btnAuthorize = view.findViewById(R.id.btnAuthorize);
+        btnRemoveAuth = view.findViewById(R.id.btnRemoveAuth);
+        btnTimeZone = view.findViewById(R.id.btnTimeZone);
+        btnSetApnName = view.findViewById(R.id.btnSetApnName);
+        btnSetApnUserPass = view.findViewById(R.id.btnSetApnUserPass);
+        btnSetIpAndPort = view.findViewById(R.id.btnSetIpAndPort);
+
+        btnChangePassword.setOnClickListener(v -> btnChangePasswordClicked());
+        btnAuthorize.setOnClickListener(v -> btnAuthorizeClicked());
+        btnRemoveAuth.setOnClickListener(v -> mountBtnDeleteNumber());
+        btnTimeZone.setOnClickListener(v -> btnVerifyImeiAction());
+        btnSetApnName.setOnClickListener(v -> btnSetApnNameClicked());
+        btnSetApnUserPass.setOnClickListener(v -> btnSetApnUserPassClicked());
+        btnSetIpAndPort.setOnClickListener(v -> btnSetIpAndPortClicked());
+
+        view.findViewById(R.id.btnTimeZone).setOnClickListener(v -> btnTimeZoneClicked());
+        view.findViewById(R.id.btnRestart).setOnClickListener(v -> restartAction());
+        view.findViewById(R.id.btnBegin).setOnClickListener(v -> beginAction());
+
         return view;
     }
 
-    @OnClick(R.id.btnChangePassword)
     public void btnChangePasswordClicked() {
         ListenerProvider.openDialogTwoParam(this, btnChangePassword, R.string.old_password, R.string.new_password, new ListenerProvider.CommandTwoParam() {
             @Override
@@ -58,7 +75,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnAuthorize)
     public void btnAuthorizeClicked() {
         ListenerProvider.openDialogOneParam(this, btnAuthorize, R.string.number, new ListenerProvider.CommandOneParam() {
             @Override
@@ -68,7 +84,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnRemoveAuth)
     public void mountBtnDeleteNumber() {
         ListenerProvider.openDialogOneParam(this, btnRemoveAuth, R.string.number, new ListenerProvider.CommandOneParam() {
             @Override
@@ -78,12 +93,10 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnVerifyImei)
     public void btnVerifyImeiAction() {
         emitter.emit(getString(R.string.verify_imei), commands.verifyImei());
     }
 
-    @OnClick(R.id.btnSetApnName)
     public void btnSetApnNameClicked() {
         ListenerProvider.openDialogOneParam(this, btnSetApnName, R.string.apn_name, new ListenerProvider.CommandOneParam() {
             @Override
@@ -93,7 +106,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnSetApnUserPass)
     public void btnSetApnUserPassClicked() {
         ListenerProvider.openDialogTwoParam(this, btnSetApnUserPass, R.string.user, R.string.pass, new ListenerProvider.CommandTwoParam() {
             @Override
@@ -103,7 +115,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnSetIpAndPort)
     public void btnSetIpAndPortClicked() {
         ListenerProvider.openDialogTwoParam(this, btnSetIpAndPort, R.string.ip, R.string.port, new ListenerProvider.CommandTwoParam() {
             @Override
@@ -113,7 +124,6 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnTimeZone)
     public void btnTimeZoneClicked() {
         ListenerProvider.openDialogOneParam(this, btnTimeZone, R.string.time_zone, new ListenerProvider.CommandOneParam() {
             @Override
@@ -123,12 +133,10 @@ public class ConfigsFragment extends Fragment {
         });
     }
 
-    @OnClick(R.id.btnRestart)
     public void restartAction() {
         emitter.emit(getString(R.string.restart_tracker), commands.reset());
     }
 
-    @OnClick(R.id.btnBegin)
     public void beginAction() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle(R.string.are_you_sure);
