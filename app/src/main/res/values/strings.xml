@@ -6,7 +6,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="operation_commands">Operation Commands</string>
+    <string name="operation_commands">Oper. Commands</string>
     <string name="alarm_commands">Alarm Commands</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
     <string name="notification_default_text">Click here for more details</string>
@@ -51,7 +51,7 @@
     <string name="factory_reset_begin">Factory Reset (Begin)</string>
     <string name="monitor">Change to Monitor</string>
     <string name="tracker">Change to Tracker</string>
-    <string name="config_parameters">Config Parameters</string>
+    <string name="config_parameters">Settings</string>
     <string name="tracker_mode">Tracker Mode</string>
     <string name="check_status">Check Status</string>
     <string name="adjust_timezone">Adjust TimeZone</string>

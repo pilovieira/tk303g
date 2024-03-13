@@ -1,25 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical"
+    tools:context="br.com.pilovieira.tk303g.view.MainActivity">
 
-    <include
-        layout="@layout/app_bar_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewMainTop"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        ads:adSize="BANNER"
+        app:adUnitId="@string/BANNER_AD_TOP" />
 
-</androidx.drawerlayout.widget.DrawerLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHotGetLocation"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:srcCompat="@drawable/ic_my_location_white_24dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHotLock"
+            android:layout_weight="1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:srcCompat="@drawable/ic_lock_outline_white_24dp" />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHotUnlock"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:srcCompat="@drawable/ic_lock_open_white_24dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/content_main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adViewMainBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        ads:adSize="BANNER"
+        app:adUnitId="@string/BANNER_AD_BOTTOM" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@android:color/primary_text_light"
+        app:itemTextColor="@android:color/primary_text_light"
+        app:menu="@menu/bottom" />
+
+</LinearLayout>

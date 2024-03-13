@@ -3,7 +3,7 @@
     <string name="app_name">Tracker TK303G</string>
     <string name="navigation_drawer_open">Abrir menu</string>
     <string name="navigation_drawer_close">Fechar menu</string>
-    <string name="operation_commands">Comandos de Operação</string>
+    <string name="operation_commands">Operação</string>
     <string name="alarm_commands">Comandos de Alarme</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
     <string name="notification_default_text">Clique para mais detalhes</string>
@@ -32,7 +32,7 @@
     <string name="main_config_commands">Configurações Principais</string>
     <string name="authorize_number">Autorizar número</string>
     <string name="remove_number">Remover número</string>
-    <string name="config_commands">Comandos de Configuração</string>
+    <string name="config_commands">Com. Config.</string>
     <string name="basic_operations">Operações Básicas</string>
     <string name="please_add_call_permission">Por favor libere a permissão para chamadas!</string>
     <string name="lat">Lat:</string>
@@ -47,7 +47,7 @@
     <string name="factory_reset_begin">Reset de Fábrica (Begin)</string>
     <string name="monitor">Alterar para Monitor</string>
     <string name="tracker">Alterar para Tracker</string>
-    <string name="config_parameters">Parâmetros de Configuração</string>
+    <string name="config_parameters">Configurações</string>
     <string name="tracker_mode">Modo do Rastreador</string>
     <string name="check_status">Validar Status</string>
     <string name="adjust_timezone">Ajustar Fuso Horário</string>
@@ -91,7 +91,7 @@
     <string name="activate">Ativar</string>
     <string name="tutorial">Tutorial</string>
     <string name="move">Movimento</string>
-    <string name="log_info">Histórico de Mensagens</string>
+    <string name="log_info">Mensagens</string>
     <string name="app_language">Idioma do App</string>
     <string name="system_language">Idioma do Sistema</string>
     <string name="english">Inglês Americano</string>

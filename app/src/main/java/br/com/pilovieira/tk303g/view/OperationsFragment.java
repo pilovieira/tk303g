@@ -46,6 +46,19 @@ public class OperationsFragment extends Fragment {
         view.findViewById(R.id.btnActivateAutoTrack).setOnClickListener(v -> activateAutoTrackAction());
         view.findViewById(R.id.btnCancelAutoTrack).setOnClickListener(v -> cancelAutoTrackAction());
 
+        view.findViewById(R.id.btnActivateAcc).setOnClickListener(v -> activateAccAction());
+        view.findViewById(R.id.btnCancelAcc).setOnClickListener(v -> cancelAccAction());
+        view.findViewById(R.id.btnActivateLowBattery).setOnClickListener(v -> activateLowBatteryAction());
+        view.findViewById(R.id.btnCancelLowBattery).setOnClickListener(v -> cancelLowBatteryAction());
+        view.findViewById(R.id.btnActivateExtPower).setOnClickListener(v -> activateExtPowerAction());
+        view.findViewById(R.id.btnCancelExtPower).setOnClickListener(v -> cancelExtPowerAction());
+        view.findViewById(R.id.btnActivateGpsSignalAlert).setOnClickListener(v -> activateGpsSignalAction());
+        view.findViewById(R.id.btnCancelGpsSignalAlert).setOnClickListener(v -> cancelGpsSignalAlertAction());
+        view.findViewById(R.id.btnActivateOverSpeed).setOnClickListener(v -> activateOverSpeedAction());
+        view.findViewById(R.id.btnCancelOverSpeed).setOnClickListener(v -> cancelOverSpeedAction());
+        view.findViewById(R.id.btnActivateMove).setOnClickListener(v -> activateMoveAction());
+        view.findViewById(R.id.btnCancelMove).setOnClickListener(v -> cancelMoveAction());
+
         return view;
     }
 
@@ -92,6 +105,72 @@ public class OperationsFragment extends Fragment {
 
     public void cancelAutoTrackAction() {
         emitter.emit(getString(R.string.cancel_auto_track), commands.cancelAutoTrack());
+    }
+
+    public void activateAccAction() {
+        emitter.emit(activateMessage(R.string.acc), commands.activateAcc());
+    }
+
+    public void cancelAccAction() {
+        emitter.emit(cancelMessage(R.string.acc), commands.cancelAcc());
+    }
+
+    public void activateLowBatteryAction() {
+        emitter.emit(activateMessage(R.string.low_battery), commands.activateLowBattery());
+    }
+
+    public void cancelLowBatteryAction() {
+        emitter.emit(cancelMessage(R.string.low_battery), commands.cancelLowBattery());
+    }
+
+    public void activateExtPowerAction() {
+        emitter.emit(activateMessage(R.string.ext_power), commands.activateExtPower());
+    }
+
+    public void cancelExtPowerAction() {
+        emitter.emit(cancelMessage(R.string.ext_power), commands.cancelExtPower());
+    }
+
+    public void activateGpsSignalAction() {
+        emitter.emit(activateMessage(R.string.gps_signal), commands.activateGpsSignalAlert());
+    }
+
+    public void cancelGpsSignalAlertAction() {
+        emitter.emit(cancelMessage(R.string.gps_signal), commands.cancelGpsSignalAlert());
+    }
+
+    public void activateOverSpeedAction() {
+        ListenerProvider.openDialogOneParam(this, getString(R.string.overspeed), R.string.speed3Digits, new ListenerProvider.CommandOneParam() {
+            @Override
+            public void apply(String speed) {
+                emitter.emit(activateMessage(R.string.overspeed), commands.activateSpeedAlarm(speed));
+            }
+        });
+    }
+
+    public void cancelOverSpeedAction() {
+        emitter.emit(cancelMessage(R.string.overspeed), commands.cancelSpeedAlarm());
+    }
+
+    public void activateMoveAction() {
+        ListenerProvider.openDialogOneParam(this, getString(R.string.move), R.string.meters4Digits, new ListenerProvider.CommandOneParam() {
+            @Override
+            public void apply(String meters) {
+                emitter.emit(activateMessage(R.string.move), commands.activateMoveAlarm(meters));
+            }
+        });
+    }
+
+    public void cancelMoveAction() {
+        emitter.emit(cancelMessage(R.string.move), commands.cancelMoveAlarm());
+    }
+
+    private String activateMessage(int id) {
+        return getString(R.string.activate) + " " + getString(id) + " " + getString(R.string.alarm);
+    }
+
+    private String cancelMessage(int id) {
+        return getString(R.string.cancel) + " " + getString(id) + " " + getString(R.string.alarm);
     }
 
 }
