@@ -100,4 +100,6 @@
     <string name="english">English</string>
     <string name="brazilian_portuguese">Brazilian Portuguese</string>
     <string name="please_restart_app">Please restart app to change the language!</string>
+    <string name="more_apps">More Apps</string>
+    <string name="contact">Contact</string>
 </resources>

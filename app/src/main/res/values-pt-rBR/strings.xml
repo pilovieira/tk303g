@@ -97,4 +97,6 @@
     <string name="english">Inglês Americano</string>
     <string name="brazilian_portuguese">Português Brasileiro</string>
     <string name="please_restart_app">Por favor reinicie o app para que o idioma seja alterado!</string>
+    <string name="more_apps">Mais Apps</string>
+    <string name="contact">Contato</string>
 </resources>

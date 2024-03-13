@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
+import br.com.pilovieira.apputils.util.BrowserUtil;
+import br.com.pilovieira.apputils.view.WhatsNewDialogFragment;
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.persist.Prefs;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
@@ -41,6 +44,13 @@ public class ParametersFragment extends Fragment {
         textTrackerNumber = view.findViewById(R.id.textTrackerNumber);
         textPassword = view.findViewById(R.id.textPassword);
         spinnerLanguage = view.findViewById(R.id.spinnerLanguage);
+
+        FragmentActivity activity = getActivity();
+        if (activity != null){
+            view.findViewById(R.id.btnPrivacyPolicy).setOnClickListener(v -> BrowserUtil.launchPrivacyPolicy(activity));
+            view.findViewById(R.id.btnMoreApps).setOnClickListener(v -> BrowserUtil.launchMoreApps(activity));
+            view.findViewById(R.id.btnContact).setOnClickListener(v -> BrowserUtil.launchMailToSupport(activity, getString(R.string.app_name)));
+        }
 
         setTextTrackerNumber();
         setTextPassword();

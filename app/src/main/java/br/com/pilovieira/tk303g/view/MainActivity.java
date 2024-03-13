@@ -9,11 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import br.com.pilovieira.apputils.util.AdUtil;
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
 import br.com.pilovieira.tk303g.log.InfoFragment;
@@ -40,10 +39,8 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
         common = new CommonOperations(getBaseContext());
 
-        AdView mAdView = findViewById(R.id.adViewMainBottom);
-        mAdView.loadAd(new AdRequest.Builder().build());
-        mAdView = findViewById(R.id.adViewMainTop);
-        mAdView.loadAd(new AdRequest.Builder().build());
+        AdUtil.buildAds(findViewById(R.id.adViewMainTop));
+        AdUtil.buildAds(findViewById(R.id.adViewMainBottom));
 
         replaceFragment(new InfoFragment());
     }
