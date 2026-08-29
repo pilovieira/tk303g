@@ -9,7 +9,7 @@ android {
     }
     defaultConfig {
         applicationId = "br.com.pilovieira.tk303g"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 37
         versionCode = 14
         versionName = "4.1.0"
