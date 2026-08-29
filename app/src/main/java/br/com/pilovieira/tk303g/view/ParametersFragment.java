@@ -15,11 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
-import br.com.pilovieira.apputils.util.BrowserUtil;
-import br.com.pilovieira.apputils.view.WhatsNewDialogFragment;
 import br.com.pilovieira.tk303g.BuildConfig;
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.persist.Prefs;
+import br.com.pilovieira.tk303g.utils.BrowserUtil;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
 
 public class ParametersFragment extends Fragment {

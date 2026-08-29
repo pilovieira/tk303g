@@ -35,7 +35,6 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation fileTree(include: ['*.aar'], dir: '/tmp/libs')
 
     implementation 'androidx.appcompat:appcompat:1.7.0'
 
