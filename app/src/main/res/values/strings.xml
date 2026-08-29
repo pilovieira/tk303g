@@ -3,9 +3,6 @@
 
     <string name="app_name">Tracker TK303G</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="operation_commands">Oper. Commands</string>
     <string name="alarm_commands">Alarm Commands</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>

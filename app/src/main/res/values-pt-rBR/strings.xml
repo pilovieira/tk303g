@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tracker TK303G</string>
-    <string name="navigation_drawer_open">Abrir menu</string>
-    <string name="navigation_drawer_close">Fechar menu</string>
     <string name="operation_commands">Operação</string>
     <string name="alarm_commands">Comandos de Alarme</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
