@@ -5,31 +5,31 @@
 ![Target SDK](https://img.shields.io/badge/targetSdk-37-blue)
 ![Version](https://img.shields.io/badge/version-4.1.0-orange)
 
-Aplicativo Android para controlar rastreadores veiculares **Coban TK303G** por SMS, sem depender de nenhum servidor ou backend próprio: os comandos são montados no app e enviados diretamente por SMS para o número configurado do rastreador.
+Android app to control **Coban TK303G** vehicle trackers over SMS, with no server or backend of its own: commands are built on the device and sent directly via SMS to the tracker's configured number.
 
-## Funcionalidades
+## Features
 
-- Envio dos comandos principais do protocolo Coban: localizar, bloquear/desbloquear veículo, verificar status, modo monitor/rastreador, GPRS/SMS, auto track
-- Configuração de senha, APN, IP/porta do servidor e números autorizados
-- Recebimento e histórico das respostas (callbacks) enviadas pelo rastreador via SMS
-- Tutorial embutido explicando o passo a passo de configuração inicial
-- Suporte a português (Brasil) e inglês
+- Sends the core Coban protocol commands: get location, lock/unlock vehicle, check status, monitor/tracker mode, GPRS/SMS mode, auto track
+- Configure password, APN, server IP/port and authorized numbers
+- Receives and logs the callbacks (SMS replies) sent back by the tracker
+- Built-in tutorial walking through the initial setup
+- Portuguese (Brazil) and English support
 
-## Tecnologias
+## Tech stack
 
-- Java, Android Views (sem Compose)
-- [OrmLite](https://ormlite.com/) para persistência local
+- Java, Android Views (no Compose)
+- [OrmLite](https://ormlite.com/) for local persistence
 - AndroidX (AppCompat, Material Components)
 - Google Mobile Ads (AdMob)
 - Gradle / Android Gradle Plugin
 
-## Requisitos
+## Requirements
 
-- Android Studio ou linha de comando com [Android SDK](https://developer.android.com/studio) configurado
+- Android Studio or the command line with the [Android SDK](https://developer.android.com/studio) set up
 - JDK 17
-- Um rastreador Coban TK303G (ou compatível) com chip habilitado para SMS
+- A Coban TK303G (or compatible) tracker with an SMS-enabled SIM card
 
-## Como buildar
+## Building
 
 ```bash
 git clone git@github.com:pilovieira/tk303g.git
@@ -37,31 +37,31 @@ cd tk303g
 ./gradlew assembleDebug
 ```
 
-O APK gerado fica em `app/build/outputs/apk/debug/`.
+The generated APK is placed in `app/build/outputs/apk/debug/`.
 
-Para instalar direto em um dispositivo/emulador conectado:
+To install directly on a connected device/emulator:
 
 ```bash
 ./gradlew installDebug
 ```
 
-## Estrutura do projeto
+## Project structure
 
 ```
 app/src/main/java/br/com/pilovieira/tk303g/
-├── business/   # Montagem dos comandos do protocolo TK303G
-├── comm/       # Envio e recebimento de SMS
-├── location/   # Parsing e histórico de localização
-├── log/        # Tela e persistência do log do servidor/rastreador
-├── persist/    # Preferências e acesso a dados (OrmLite)
-├── utils/      # Utilitários (idioma, anúncios, navegador)
-└── view/       # Activities e Fragments (UI)
+├── business/   # TK303G protocol command building
+├── comm/       # SMS sending and receiving
+├── location/   # Location parsing and history
+├── log/        # Server/tracker log screen and persistence
+├── persist/    # Preferences and data access (OrmLite)
+├── utils/      # Utilities (language, ads, browser)
+└── view/       # Activities and Fragments (UI)
 ```
 
-## Aviso
+## Disclaimer
 
-Este app é apenas um emissor de comandos SMS para o protocolo do rastreador. O uso é de inteira responsabilidade de quem o utiliza.
+This app is just a command sender for the tracker's protocol. Use it at your own responsibility.
 
-## Contato
+## Contact
 
-Dúvidas ou sugestões: appsfuncionais@gmail.com
+Questions or suggestions: appsfuncionais@gmail.com
