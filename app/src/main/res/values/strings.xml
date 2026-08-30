@@ -98,8 +98,6 @@
     <string name="brazilian_portuguese">Brazilian Portuguese</string>
     <string name="please_restart_app">Please restart app to change the language!</string>
     <string name="more_apps">More Apps</string>
-    <string name="contact">Contact</string>
     <string name="need_browser_message">You need a web browser to access this content!</string>
-    <string name="send_email_using">Send email using…</string>
     <string name="privacy_policy">Privacy policy</string>
 </resources>
