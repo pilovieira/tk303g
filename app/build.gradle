@@ -11,8 +11,8 @@ android {
         applicationId = "br.com.pilovieira.tk303g"
         minSdk = 23
         targetSdk = 37
-        versionCode = 14
-        versionName = "4.1.0"
+        versionCode = 15
+        versionName = "4.1.1"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled = true
     }
