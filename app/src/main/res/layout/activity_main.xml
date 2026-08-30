@@ -67,7 +67,7 @@
         android:id="@+id/nav_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/colorPrimary"
+        android:background="@color/colorPrimary"
         app:itemIconTint="@android:color/primary_text_light"
         app:itemTextColor="@android:color/primary_text_light"
         app:menu="@menu/bottom" />
