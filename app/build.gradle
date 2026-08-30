@@ -1,27 +1,26 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace 'br.com.pilovieira.tk303g'
-    compileSdk 34
+    namespace = 'br.com.pilovieira.tk303g'
+    compileSdk = 37
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     defaultConfig {
-        applicationId "br.com.pilovieira.tk303g"
-        minSdkVersion 19
-        targetSdk 34
-        versionCode 14
-        versionName "4.1.0"
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        applicationId = "br.com.pilovieira.tk303g"
+        minSdk = 23
+        targetSdk = 37
+        versionCode = 16
+        versionName = "4.1.2"
         vectorDrawables.useSupportLibrary = true
-        multiDexEnabled true
+        multiDexEnabled = true
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             applicationIdSuffix ".developer"
@@ -31,18 +30,12 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation fileTree(include: ['*.aar'], dir: 'c:/tmp/libs')
-    implementation fileTree(include: ['*.aar'], dir: '/tmp/libs')
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.8.0'
 
-    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+    implementation 'com.google.android.gms:play-services-ads:25.4.0'
 
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.android.material:material:1.14.0'
 
-    implementation 'com.j256.ormlite:ormlite-android:4.45'
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.j256.ormlite:ormlite-android:6.1'
 }

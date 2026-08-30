@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import br.com.pilovieira.apputils.util.AdUtil;
 import br.com.pilovieira.tk303g.R;
 import br.com.pilovieira.tk303g.business.CommonOperations;
 import br.com.pilovieira.tk303g.log.InfoFragment;
+import br.com.pilovieira.tk303g.utils.AdUtil;
 import br.com.pilovieira.tk303g.utils.LanguageSetter;
 
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener, NavigationBarView.OnItemReselectedListener {

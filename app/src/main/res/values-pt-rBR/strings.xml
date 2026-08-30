@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tracker TK303G</string>
-    <string name="navigation_drawer_open">Abrir menu</string>
-    <string name="navigation_drawer_close">Fechar menu</string>
     <string name="operation_commands">Operação</string>
     <string name="alarm_commands">Comandos de Alarme</string>
     <string name="requisition_resolver_info_title">Coban Tracker TK303G Info</string>
@@ -98,5 +96,6 @@
     <string name="brazilian_portuguese">Português Brasileiro</string>
     <string name="please_restart_app">Por favor reinicie o app para que o idioma seja alterado!</string>
     <string name="more_apps">Mais Apps</string>
-    <string name="contact">Contato</string>
+    <string name="need_browser_message">Você precisa de um navegador de internet para acessar o conteúdo!</string>
+    <string name="privacy_policy">Política de privacidade</string>
 </resources>

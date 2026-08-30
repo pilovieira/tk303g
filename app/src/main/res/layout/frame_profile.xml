@@ -35,11 +35,5 @@
         android:layout_height="wrap_content"
         android:text="@string/more_apps"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
-    <Button
-        android:id="@+id/btnContact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/contact"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
 
 </LinearLayout>
