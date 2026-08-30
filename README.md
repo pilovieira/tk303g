@@ -1,9 +1,9 @@
 # Tracker TK303G
 
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
-![Min SDK](https://img.shields.io/badge/minSdk-21-blue)
+![Min SDK](https://img.shields.io/badge/minSdk-23-blue)
 ![Target SDK](https://img.shields.io/badge/targetSdk-37-blue)
-![Version](https://img.shields.io/badge/version-4.1.0-orange)
+![Version](https://img.shields.io/badge/version-4.1.2-orange)
 
 Android app to control **Coban TK303G** vehicle trackers over SMS, with no server or backend of its own: commands are built on the device and sent directly via SMS to the tracker's configured number.
 
